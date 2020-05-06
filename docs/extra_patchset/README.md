@@ -61,7 +61,7 @@ kpatch-patch-url: https://bugs.centos.org/view.php?id=13499
 ```
 To enable Symlink Owner Match Protection, add the following line:
 
-`Fs.enforce_symlinksifowner =1`
+`fs.enforce_symlinksifowner=1`
 
 to `/etc/sysconfig/kcare/sysctl.conf`.
 
