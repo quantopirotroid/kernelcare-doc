@@ -1,6 +1,25 @@
 const urls = require("./urls-mapping.js");
 
 module.exports = {
+  plugins: [
+    ['container', {
+      type: 'warning',
+      before: info => `<div class="warning custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+    ['container', {
+      type: 'tip',
+      before: info => `<div class="tip custom-block"><p class="custom-block-title">${info}</p>`,
+      after: '</div>',
+    }],
+    ['disqus', { shortname: 'cldocs' }],
+    ['@vuepress/google-analytics',
+      {
+        'ga': 'UA-12711721-6'
+      }
+    ]
+  ],
+
   base: "/",
 
   // tracking ids
@@ -8,7 +27,6 @@ module.exports = {
       ["script", { src: "https://js.hs-scripts.com/5408110.js" }], // HubSpot
       ["link", { rel: "icon", href: "/favicon.ico" }],
   ],
-  ga: "UA-12711721-6", // google analitics
   fbPixelID: "645174729237247", // facebook pixel
 
   locales: {
