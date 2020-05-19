@@ -690,6 +690,25 @@ nginx ePortal access log: `/var/log/nginx/kcare-eportal.log`
 nginx error log: `/var/log/nginx/error_log`
 
 
+### Log Rotation
+
+By default there is no predefined parameters for eportal's logs rotation. If you want to enable it for the files listed above:
+ - Install `logrotate` package 
+ - Create/edit `/etc/logrotate.d/eportal` configuration file 
+ 
+ Example logrotate config:
+
+```
+/var/log/nginx/kcare-eportal.log {
+    daily
+    rotate 5 # keep 5 last archives
+    missingok # it's ok if there is no such file
+    notifempty # do nothing if file is empty
+    compress 
+}
+```
+
+
 ## Nagios & Zabbix support
 
 
