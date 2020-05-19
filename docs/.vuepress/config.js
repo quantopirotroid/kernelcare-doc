@@ -17,7 +17,7 @@ module.exports = {
       before: info => `<div class="danger custom-block"><p class="custom-block-title">${info}</p>`,
       after: '</div>',
     }],
-    ['disqus', { shortname: 'cldocs' }],
+    ['disqus', { shortname: 'docskernelcarecom' }],
     ['@vuepress/google-analytics',
       {
         'ga': 'UA-12711721-6'

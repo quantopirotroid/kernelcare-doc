@@ -23,3 +23,4 @@ To see applied patches run:
 $ /usr/bin/kcarectl --patch-info 
 ```
 
+<Disqus/>

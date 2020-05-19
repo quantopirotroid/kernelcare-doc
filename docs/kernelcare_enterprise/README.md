@@ -776,3 +776,5 @@ For example, to disable the default https verification you can set the `PYTHONHT
 ```
 echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
 ```
+
+<Disqus/>
