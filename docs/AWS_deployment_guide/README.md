@@ -218,3 +218,5 @@ Your KernelCare subscription includes free 24/7 support.
 ### Localization
 
 KernelCare is available in the English language only.
+
+<Disqus/>

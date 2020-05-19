@@ -25,3 +25,4 @@ You can download Zabbix template at:
 
 [http://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml](http://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml)
 
+<Disqus/>

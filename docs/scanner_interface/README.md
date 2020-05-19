@@ -62,3 +62,5 @@ For example, Nessus for an old kernel shows a bunch of detected CVEs
 After patches were applied, there are no kernel-related CVEs
 
 ![](/images/scanner-manipulation-after.png)
+
+<Disqus/>

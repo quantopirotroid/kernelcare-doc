@@ -18,5 +18,5 @@ apt-get remove kernelcare
 dpkg --remove kernelcare
 ```
 
-
+<Disqus/>
 

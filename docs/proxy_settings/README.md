@@ -57,3 +57,4 @@ All `kcarectl` launches will be aware of proxy settings from the config. In this
 
 ![](/images/patchingthroughproxy.png)
 
+<Disqus/>
