@@ -68,10 +68,6 @@ echo off > /sys/devices/system/cpu/smt/control
 
 Disabling SMT, [updating microcode](/how_to's/#how-to-update-microcode-without-reboot-with-vendor-provided-package), and applying KernelCare patches will protect your systems against the ZombieLoad vulnerability. Note, only the latter action is applicable to virtual systems (e.g. VMs, VPS and other cloud instance types).
 
-#### Example
-
-A video example can be seen [here](https://asciinema.org/a/zZYA3INITh59ObzSGp9OeLCdn).
-
 ## How to update Microcode without reboot with vendor-provided package
 
 This article shows how to update the microcode of Intel CPUs running Linux.

@@ -68,10 +68,6 @@ echo off > /sys/devices/system/cpu/smt/control
 
 SMTを無効にし、 [マイクロコードを更新し](/jp/how_to/#ベンダ提供のパッケージで再起動せずにマイクロコードを更新する方法), KernelCare パッチを適用すると、ZombieLoad の脆弱性からシステムが保護されます。仮想システム（VM、VPS、その他のクラウドインスタンスタイプなど）には、後者のアクションのみが適用されます。
 
-#### 例
-
-ビデオの例が [ここにあります](https://asciinema.org/a/zZYA3INITh59ObzSGp9OeLCdn)。
-
 ## ベンダ提供のパッケージで再起動せずにマイクロコードを更新する方法
 
 この文書では、Linux を実行している Intel CPU のマイクロコードを更新する方法を説明します。
@@ -88,7 +84,7 @@ SMTを無効にし、 [マイクロコードを更新し](/jp/how_to/#ベンダ�
 
 ::: tip 注記
 * これらの手順はrootとして実行する必要があります。
-* 示されている例はDebian用です。 (Debian 9のビデオの例は [ここをクリックします](https://asciinema.org/a/pWVQb2xR2K65B9TAfWwgvhOvG)。)
+* 示されている例はDebian用です。
 * あなたのシステムが　CPU　および　カーネル関連の脆弱性から完全に保護されていることに疑念がある場合は、 [KernelCare社、もしくは GDEPソリューションズ株式会社に連絡を取って下さい。](mailto:kcsales@gdep-sol.co.jp).
 :::
 
