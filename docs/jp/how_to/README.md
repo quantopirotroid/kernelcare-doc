@@ -66,7 +66,7 @@ echo on > /sys/devices/system/cpu/smt/control
 echo off > /sys/devices/system/cpu/smt/control
 ```
 
-SMTを無効にし、 [マイクロコードを更新し](/how_to's/#ベンダ提供のパッケージで再起動せずにマイクロコードを更新する方法), KernelCare パッチを適用すると、ZombieLoad の脆弱性からシステムが保護されます。仮想システム（VM、VPS、その他のクラウドインスタンスタイプなど）には、後者のアクションのみが適用されます。
+SMTを無効にし、 [マイクロコードを更新し](/how_to/#ベンダ提供のパッケージで再起動せずにマイクロコードを更新する方法), KernelCare パッチを適用すると、ZombieLoad の脆弱性からシステムが保護されます。仮想システム（VM、VPS、その他のクラウドインスタンスタイプなど）には、後者のアクションのみが適用されます。
 
 #### 例
 
@@ -82,8 +82,8 @@ SMTを無効にし、 [マイクロコードを更新し](/how_to's/#ベンダ�
 
 **内容:**
 
-* [UbuntuとDebianでのマイクロコード更新](/how_to's/#UbuntuとDebianでのマイクロコード更新)
-* [Red Hat Enterprise Linux（およびその派生物）でのマイクロコード更新)](/how_to's/#Red-HatおよびCentOSでのマイクロコード更新)
+* [UbuntuとDebianでのマイクロコード更新](/how_to/#UbuntuとDebianでのマイクロコード更新)
+* [Red Hat Enterprise Linux（およびその派生物）でのマイクロコード更新)](/how_to/#Red-HatおよびCentOSでのマイクロコード更新)
 
 
 ::: tip 注記
