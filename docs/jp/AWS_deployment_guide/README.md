@@ -61,7 +61,7 @@ KernelCareの導入をインストール/コントロールするために必要
 
 ### 費用
 
-KernelCareはサブスクリプションサービスとして提供されます。KernelCareの費用およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareはサブスクリプションサービスとして提供されます。KernelCareの費用およびサポートに関する日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 ### サイジング
 
@@ -193,7 +193,7 @@ $ /usr/bin/kcarectl --set-sticky-patch=KEY
 ```
 その後、生成されたキーをサポートリクエストに貼り付けます。
 
-KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 ### サポート費用
 
@@ -205,12 +205,12 @@ KernelCareサブスクリプションにはe-mailまたはオンラインによ�
 
 * KernelCare ウェブサイト: [https://www.kernelcare.com/ja/](https://www.kernelcare.com/ja/)
 * KernelCare ブログ: [https://www.kernelcare.com/blog/](https://www.kernelcare.com/blog/)
-* KernelCare パッチサーバ: [http://patches.kernelcare.com](http://patches.kernelcare.com)
-* KernelCare のドキュメント: [http://docs.kernelcare.com/jp/](http://docs.kernelcare.com/jp/)
+* KernelCare パッチサーバ: [https://patches.kernelcare.com](https://patches.kernelcare.com)
+* KernelCare のドキュメント: [https://docs.kernelcare.com/jp/](https://docs.kernelcare.com/jp/)
 * CloudLinux Network – CLN (ポータル): [https://cln.cloudlinux.com](https://cln.cloudlinux.com)
 * CloudLinux 24時間365日オンラインサポートシステム: [https://cloudlinux.zendesk.com](https://cloudlinux.zendesk.com)
 
-KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
   
 ### ローカライゼーション
 

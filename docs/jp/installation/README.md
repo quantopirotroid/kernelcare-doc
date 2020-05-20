@@ -68,7 +68,7 @@ KspliceからKernelCareに切り替えるためには、Kspliceをアンイン�
 
 Kspliceモジュールをアンインストールできない場合も検出し、複数回再試行します。
 
-スクリプトについては次のリンク先よりダウンロードしてください。: [http://patches.kernelcare.com/ksplice2kcare](http://patches.kernelcare.com/ksplice2kcare) .
+スクリプトについては次のリンク先よりダウンロードしてください。: [https://patches.kernelcare.com/ksplice2kcare](https://patches.kernelcare.com/ksplice2kcare) .
 
 次のコマンドを実行してください。:
 

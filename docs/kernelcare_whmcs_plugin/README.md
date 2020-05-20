@@ -45,8 +45,8 @@ In this section we will show you how to set up our products.
 
 Download CloudLinux Licenses For WHMCS:
 
-* **Production**: [http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip](http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip)
-* **Beta**: [http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip](http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip)
+* **Production**: [https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip](https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip)
+* **Beta**: [https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip](https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip)
 * 
 Upload archive to your WHMCS root folder and extract it. Files should automatically jump into their places.
 Run the following script:

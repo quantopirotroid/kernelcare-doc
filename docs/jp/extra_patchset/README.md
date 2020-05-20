@@ -71,5 +71,5 @@ Symlink Owner Match Protectionを有効にするには、次のコマンドを�
 sysctl -w fs.enforce_symlinksifowner=1
 ```
 
-より詳細について [http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html](http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html) を参照ください。
+より詳細について [https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection](https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection) を参照ください。
 

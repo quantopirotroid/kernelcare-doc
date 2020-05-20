@@ -98,8 +98,6 @@ Into `/etc/sysconfig/kcare/sysctl.conf`. And run:
 sysctl -w fs.enforce_symlinksifowner=1
 ```
 
-See [http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html](http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html) for details.
-
-More information can be found here: [http://www.kernelcare.com/faq.php](http://www.kernelcare.com/faq.php).
+See [https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection](https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection) for details.
 
 <Disqus/>

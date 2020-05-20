@@ -6,7 +6,7 @@
 
 WHMCSのCloudLinuxライセンスを使用すると、KernelCare、Imunify 360、CloudLinuxのライセンスとその製品を自動的に使用できるようになります。無料または有料のアドオンとして製品にプロビジョニングできます。CloudLinux Licensesアドオンのおかげでメイン製品のすべてのモジュールコマンドは自動的にライセンス製品に再現されます。
 
-KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 **アドミンエリアの機能**
 
@@ -47,8 +47,8 @@ KernelCareの価格およびサポートに関する日本語及び日本の問�
 
 WHMCS用のCloudLinuxライセンスをダウンロードします。:
 
-* **本番環境**: [http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip](http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip)
-* **ベータ**: [http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip](http://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip)
+* **本番環境**: [https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip](https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-latest.zip)
+* **ベータ**: [https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip](https://repo.cloudlinux.com/plugins/whmcs-cl-plugin-beta.zip)
 * 
 アーカイブをWHMCSのルートフォルダにアップロードして解凍します。ファイルは自動的にその場所に保管されます。
 次のスクリプトを実行してください。:

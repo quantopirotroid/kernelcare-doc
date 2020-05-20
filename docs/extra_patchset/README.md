@@ -71,6 +71,6 @@ And run:
 sysctl -w fs.enforce_symlinksifowner=1
 ```
 
-See [http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html](http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html) for details.
+See [https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection](https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection) for details.
 
 <Disqus/>

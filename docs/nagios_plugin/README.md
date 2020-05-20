@@ -5,7 +5,7 @@
 
 Start from installing Nagios monitoring system.
 
-You can download the plugin from [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare)
+You can download the plugin from [https://patches.kernelcare.com/downloads/nagios/check_kcare](https://patches.kernelcare.com/downloads/nagios/check_kcare)
 
 Place the plugin into ` /usr/lib64/nagios/plugins/ ` directory and make this script executable by running:
 
@@ -17,7 +17,7 @@ Create `kcare.cfg` configuration file from the template below and place it into 
 
 You will also need to specify your KernelCare key instead of `KERNELCARE_KEY`. If the licenses are IP-based, you can find your login & API security token in _Profile_ section of your CLN account.
 
-Restart Nagios service and go to Nagios Web UI (http://NAGIOS_IP/nagios/). Click on _Services_ link (top left under _Hosts_). You should be able to see a string showing an output from monitoring script (please see screenshots below).
+Restart Nagios service and go to Nagios Web UI (https://NAGIOS_IP/nagios/). Click on _Services_ link (top left under _Hosts_). You should be able to see a string showing an output from monitoring script (please see screenshots below).
 
 Script options:
 

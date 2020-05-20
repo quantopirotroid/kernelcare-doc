@@ -5,7 +5,7 @@
 
 Nagiosモニタリングシステムのインストールから始めます。
 
-このプラグインは [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare) からダウンロードすることができます。
+このプラグインは [https://patches.kernelcare.com/downloads/nagios/check_kcare](https://patches.kernelcare.com/downloads/nagios/check_kcare) からダウンロードすることができます。
 
 そのプラグインを ` /usr/lib64/nagios/plugins/ ` ディレクトリに配置し、以下のコマンドを実行してこのスクリプトを実行可能な状態にします。:
 
@@ -17,7 +17,7 @@ chmod +x /usr/lib64/nagios/plugins/check_kcare
 
  `KERNELCARE_KEY` の代わりにKernelCare Keyも指定する必要があります。 ライセンスがIPベースの場合、CLNアカウントの_Profile_セクションに、ログインとAPIセキュリティトークンを見つけることができます。
 
-Nagiosサービスを再起動（リスタート）し、Nagios Web UI (http://NAGIOS_IP/nagios/) にアクセスします。_Services_リンク(_Hosts_の左上)をクリックします。モニタリングスクリプトからの出力を示す文字列を見つけることができるはずです（下記のスクリーンショットをご覧ください）。
+Nagiosサービスを再起動（リスタート）し、Nagios Web UI (https://NAGIOS_IP/nagios/) にアクセスします。_Services_リンク(_Hosts_の左上)をクリックします。モニタリングスクリプトからの出力を示す文字列を見つけることができるはずです（下記のスクリーンショットをご覧ください）。
 
 スクリプトオプション:
 

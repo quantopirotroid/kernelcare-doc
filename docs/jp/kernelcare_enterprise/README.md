@@ -41,13 +41,13 @@ e-portalのインストールと作業性のために、nginx Webサーバが必
 $ cat > /etc/yum.repos.d/nginx.repo <<EOL
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/6/\$basearch/
+baseurl=https://nginx.org/packages/centos/6/\$basearch/
 gpgcheck=0
 enabled=1
 EOL
 ```
 
-詳細は [http://nginx.org/en/linux_packages.html#stable](http://nginx.org/en/linux_packages.html#stable) をご覧ください。
+詳細は [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable) をご覧ください。
 
 KernelCare.ePortalリポジトリを設定します。:
 
@@ -55,8 +55,8 @@ KernelCare.ePortalリポジトリを設定します。:
 $ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
 [kcare-eportal]
 name=kcare-eportal
-baseurl=http://repo.eportal.kernelcare.com/x86_64/
-gpgkey=http://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
+baseurl=https://repo.eportal.kernelcare.com/x86_64/
+gpgkey=https://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
 enabled=1
 gpgcheck=1
 EOL
@@ -81,13 +81,13 @@ e-portalのインストールと作業性のために、nginx Webサーバが必
 $ cat > /etc/yum.repos.d/nginx.repo <<EOL
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/7/\$basearch/
+baseurl=https://nginx.org/packages/centos/7/\$basearch/
 gpgcheck=0
 enabled=1
 EOL
 ```
 
-詳細は [http://nginx.org/en/linux_packages.html#stable](http://nginx.org/en/linux_packages.html#stable) をご覧ください。
+詳細は [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable) をご覧ください。
 
 KernelCare.ePortalリポジトリを設定します。:
 
@@ -112,14 +112,14 @@ $ yum install kcare-eportal
 
 ePortalマシンではコマンドラインで使用するのと同じプロキシ設定を定義する必要があります。
 
-これを行うには <span class="notranslate">`PROXY = 'http://example.com'`</span> を次のファイルに追加します。: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
+これを行うには <span class="notranslate">`PROXY = 'https://example.com'`</span> を次のファイルに追加します。: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
 
 このファイルが存在しない場合、NGINXの所有者で作成してください。:
 
 <div class="notranslate">
 
 ```
-echo "PROXY = 'http://example.com'" > /usr/share/kcare-eportal/config/local.py
+echo "PROXY = 'https://example.com'" > /usr/share/kcare-eportal/config/local.py
 chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 ```
 </div>
@@ -169,7 +169,7 @@ uid=%s,dc=example,dc=com
 
 LDAP URLを使用してセキュリティ設定とセットアップタイムアウトを指定することもできます。
 
-初めてLDAP資格情報でePortalにログインすると、デフォルトでLDAPユーザ名、読み取り専用権限、およびLDAPの説明を持つユーザがデータベースに作成されます(`http://<eportal>/admin/user/`)。
+初めてLDAP資格情報でePortalにログインすると、デフォルトでLDAPユーザ名、読み取り専用権限、およびLDAPの説明を持つユーザがデータベースに作成されます(`https://<eportal>/admin/user/`)。
 
 下図では、 `kc.eportal` コマンドラインインターフェースで作成された一人のユーザと、LDAP認証情報でログインされた二人のユーザを見つけることができます。
 
@@ -187,7 +187,7 @@ LDAP URLを使用してセキュリティ設定とセットアップタイムア
 ## ePortalにアクセス
 
 
-KernelCare.eportalマネジメントコンソールにアクセスするには **http://YOUR_IP/admin** に接続します。
+KernelCare.eportalマネジメントコンソールにアクセスするには **https://YOUR_IP/admin** に接続します。
 
 その後、あなたのログイン名とパスワードを入力してください。
 
@@ -466,15 +466,15 @@ ePortalを使用するために、kernelcareクライアントソフトウェア
 | |  | |
 |-|--|-|
 |**環境変数** | **値** | **説明**|
-|`KCARE_PATCH_SERVER` | http://eportal_ip/ | パッチのダウンロード元となるサーバのURL|
-|`KCARE_REGISTRATION_URL` | http://eportal_ip/admin/api/kcare | ePortalのapiのURL|
+|`KCARE_PATCH_SERVER` | https://eportal_ip/ | パッチのダウンロード元となるサーバのURL|
+|`KCARE_REGISTRATION_URL` | https://eportal_ip/admin/api/kcare | ePortalのapiのURL|
 |`KCARE_MAILTO [ver2.5以降]` | email@address | KernelCareアップデートの失敗に関連する全ての通知を受け取るEmailアドレス。 `/etc/cron.d/kcare-cron`　で使用。|
 
 例:
 
 ```
-$ export KCARE_PATCH_SERVER=http://10.1.10.115/
-$ export KCARE_REGISTRATION_URL=http://10.1.10.115/admin/api/kcare
+$ export KCARE_PATCH_SERVER=https://10.1.10.115/
+$ export KCARE_REGISTRATION_URL=https://10.1.10.115/admin/api/kcare
 $ export KCARE_MAILTO=admin@mycompany.com
 $ curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 $ kcarectl --register r72fF838Q47oWigj
@@ -489,8 +489,8 @@ KernelCareクライアント設定ファイルは `/etc/sysconfig/kcare/kcare.co
 
 ```
 AUTO_UPDATE=True
-PATCH_SERVER=http://10.1.10.115/
-REGISTRATION_URL=http://10.1.10.115/admin/api/kcare
+PATCH_SERVER=https://10.1.10.115/
+REGISTRATION_URL=https://10.1.10.115/admin/api/kcare
 ```
 
 `AUTO_UPDATE` が `True` に設定されている場合、KernelCareクライアントは4時間ごとにチェックインし、最新のパッチをダウンロードして適用しようとします。
@@ -709,7 +709,7 @@ APIを直接カールして情報を受け取ることができます:
 https://yourserver/admin/api/kcare/nagios/KCAREKEY
 ```
 
-または [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare) スクリプトを使用して、自分のサーバを指すように KEY_KCARE_NAGIOS_ENDPOINT を変更することもできます ( [https://cln.cloudlinux.com/clweb](https://cln.cloudlinux.com/clweb) （古いUIへのリンク）を変更、または [https://cln.cloudlinux.com/console/auth/login](https://cln.cloudlinux.com/console/auth/login) （新しいUIへのリンク）とともに [https://yourserver/admin](https://yourserver/admin) を変更)。
+または [https://patches.kernelcare.com/downloads/nagios/check_kcare](https://patches.kernelcare.com/downloads/nagios/check_kcare) スクリプトを使用して、自分のサーバを指すように KEY_KCARE_NAGIOS_ENDPOINT を変更することもできます ( [https://cln.cloudlinux.com/clweb](https://cln.cloudlinux.com/clweb) （古いUIへのリンク）を変更、または [https://cln.cloudlinux.com/console/auth/login](https://cln.cloudlinux.com/console/auth/login) （新しいUIへのリンク）とともに [https://yourserver/admin](https://yourserver/admin) を変更)。
 
 ::: tip 注記
  `PARTNER_LOGIN/TOKEN` を使用したアクセスはKernelCare.ePortalではサポートされていません。

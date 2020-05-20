@@ -68,7 +68,7 @@ It will automatically detect and abort if the system is not 64-bit (as KernelCar
 
 It will also detects when Ksplice module cannot be uninstalled, and retries multiple times.
 
-Download the script here: [http://patches.kernelcare.com/ksplice2kcare](http://patches.kernelcare.com/ksplice2kcare) .
+Download the script here: [https://patches.kernelcare.com/ksplice2kcare](https://patches.kernelcare.com/ksplice2kcare) .
 
 Run the command:
 

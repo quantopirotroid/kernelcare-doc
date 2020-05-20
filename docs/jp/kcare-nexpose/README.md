@@ -18,8 +18,8 @@ kcare-nexposeをインストールするには、EL6の最小イメージから�
 $ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
 [kcare-eportal]
 name=kcare-eportal
-baseurl=http://repo.eportal.kernelcare.com/x86_64/
-gpgkey=http://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
+baseurl=https://repo.eportal.kernelcare.com/x86_64/
+gpgkey=https://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
 enabled=1
 gpgcheck=1
 EOL
@@ -111,17 +111,17 @@ nexpose:
 patch-server:
  
  # URL to connect to Kernelcare ePortal
- # For kernelcare ePortal use "http://<kernel-care-eportal-domain-name-or-ip>/admin/api/kcare/patchset/"
+ # For kernelcare ePortal use "https://<kernel-care-eportal-domain-name-or-ip>/admin/api/kcare/patchset/"
  # For licenses issued by CLN, use "https://cln.cloudlinux.com/api/kcare/patchset.json?key="
  server: https://cln.cloudlinux.com/api/kcare/patchset.json?key=
  
  # Server for patch sets
  # For patch sets from Kernelcare ePortal server use domain name
  # (or IP address)
- # patches-info: http://<kernel-care-eportal-domain-name-or-ip>
+ # patches-info: https://<kernel-care-eportal-domain-name-or-ip>
  
  # For patch sets from the central KernelCare patch server
- patches-info: http://patches.kernelcare.com/
+ patches-info: https://patches.kernelcare.com/
  
  # List of KernelCare license keys
  keys:

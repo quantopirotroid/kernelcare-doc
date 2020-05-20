@@ -7,7 +7,7 @@
 
 無償のSymlink Protection(シンボリックリンク保護)パッチセットをインストールし、 [KernelCare](https://www.kernelcare.com/) が提供するリブート無しの包括的なカーネルセキュリティアップデートを利用したいのであれば、以下でそれを行う方法を説明します。
 
-KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 
 あなたがIPベースのライセンスを使用している場合、他に何もする必要はなく、既に準備ができている状態に設定されています。
 
@@ -98,8 +98,6 @@ Fs.enforce_symlinksifowner =1
 sysctl -w fs.enforce_symlinksifowner=1
 ```
 
-詳細は [http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html](http://docs.cloudlinux.com/index.html?symlink_owner_match_protection.html) を参照ください。
-
-より多くの情報はこちらで見つけることができます。: [http://www.kernelcare.com/jp/faq.php](http://www.kernelcare.com/jp/faq.php).
+詳細は [https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection](https://docs.cloudlinux.com/cloudlinux_os_kernel/#symlink-owner-match-protection) を参照ください。
 
 

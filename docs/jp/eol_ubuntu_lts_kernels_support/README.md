@@ -41,5 +41,5 @@ _完全にサポートされているカーネル:_
 
 質問がある場合は弊社の [support team](https://cloudlinux.zendesk.com/hc/requests/new) に連絡してください。
 
-KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](http://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
+KernelCareの価格およびサポートに関する日本語及び日本の問合せ先は　[GDEPソリューションズ株式会社](https://www.gdep-sol.co.jp/) Tel: +81-3-5802-7050  E-mail: kcsales@gdep-sol.co.jp となります。
 

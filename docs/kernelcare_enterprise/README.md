@@ -41,13 +41,13 @@ For installation and workability of e-portal nginx web server is required. We re
 $ cat > /etc/yum.repos.d/nginx.repo <<EOL
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/6/\$basearch/
+baseurl=https://nginx.org/packages/centos/6/\$basearch/
 gpgcheck=0
 enabled=1
 EOL
 ```
 
-Please find more information at [http://nginx.org/en/linux_packages.html#stable](http://nginx.org/en/linux_packages.html#stable)
+Please find more information at [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable)
 
 Setup KernelCare.ePortal repo:
 
@@ -55,8 +55,8 @@ Setup KernelCare.ePortal repo:
 $ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
 [kcare-eportal]
 name=kcare-eportal
-baseurl=http://repo.eportal.kernelcare.com/x86_64/
-gpgkey=http://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
+baseurl=https://repo.eportal.kernelcare.com/x86_64/
+gpgkey=https://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
 enabled=1
 gpgcheck=1
 EOL
@@ -81,13 +81,13 @@ For installation and workability of e-portal nginx web server is required. We re
 $ cat > /etc/yum.repos.d/nginx.repo <<EOL
 [nginx]
 name=nginx repo
-baseurl=http://nginx.org/packages/centos/7/\$basearch/
+baseurl=https://nginx.org/packages/centos/7/\$basearch/
 gpgcheck=0
 enabled=1
 EOL
 ```
 
-Please find more information at [http://nginx.org/en/linux_packages.html#stable](http://nginx.org/en/linux_packages.html#stable)
+Please find more information at [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable)
 
 Setup KernelCare.ePortal repo:
 
@@ -112,14 +112,14 @@ $ yum install kcare-eportal
 
 On the ePortal machine, you should define the same proxy settings as you use in the command line.
 
-To do so, add <span class="notranslate">`PROXY = 'http://example.com'`</span> to the following file: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
+To do so, add <span class="notranslate">`PROXY = 'https://example.com'`</span> to the following file: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
 
 If this file doesn't exist, create it with a NGINX owner:
 
 <div class="notranslate">
 
 ```
-echo "PROXY = 'http://example.com'" > /usr/share/kcare-eportal/config/local.py
+echo "PROXY = 'https://example.com'" > /usr/share/kcare-eportal/config/local.py
 chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 ```
 </div>
@@ -213,7 +213,7 @@ ldap://example.com?strict_check=0&timeout=30&tls=0
 
 #### Log in to ePortal with your LDAP credentials
 
-When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and `LDAP` description is created in the database by default (`http://<eportal>/admin/user/`).
+When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and `LDAP` description is created in the database by default (`https://<eportal>/admin/user/`).
 
 In the picture, you can see one user created with `kc.eportal` command line interface and two users logged in with LDAP credentials.
 
@@ -231,7 +231,7 @@ When a user logs in to ePortal, ePortal checks the user credentials in the local
 
 
 To access KernelCare.eportal management console, connect to:
-**http://YOUR_IP/admin**
+**https://YOUR_IP/admin**
 
 And enter your login & password
 
@@ -504,7 +504,7 @@ $ /usr/bin/kcarectl --register key_from_your_eportal
 ## Deploying KernelCare
 
 
-To deploy kernelcare client software to use ePortal, following enviornment variables should be setup prior to RPM install:
+To deploy kernelcare client software to use ePortal, the following environment variables should be setup prior to RPM install:
 
 | |  | |
 |-|--|-|
@@ -720,7 +720,7 @@ You can curl the API directly to receive the information:
 https://yourserver/admin/api/kcare/nagios/KCAREKEY
 ```
 
-or you can use [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare) script by modifying KEY_KCARE_NAGIOS_ENDPOINT in it to point to your server (change [https://cln.cloudlinux.com/clweb](https://cln.cloudlinux.com/clweb) (link to old UI) or [https://cln.cloudlinux.com/console/auth/login](https://cln.cloudlinux.com/console/auth/login) (link to new UI) with [https://yourserver/admin](https://yourserver/admin) ).
+or you can use [https://patches.kernelcare.com/downloads/nagios/check_kcare](https://patches.kernelcare.com/downloads/nagios/check_kcare) script by modifying KEY_KCARE_NAGIOS_ENDPOINT in it to point to your server (change [https://cln.cloudlinux.com/clweb](https://cln.cloudlinux.com/clweb) (link to old UI) or [https://cln.cloudlinux.com/console/auth/login](https://cln.cloudlinux.com/console/auth/login) (link to new UI) with [https://yourserver/admin](https://yourserver/admin) ).
 
 :::tip Note
 Access using `PARTNER_LOGIN/TOKEN` is not supported by KernelCare.ePortal.

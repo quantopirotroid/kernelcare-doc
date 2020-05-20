@@ -210,8 +210,8 @@ Your KernelCare subscription includes free 24/7 support.
 
 * KernelCare website: [https://www.kernelcare.com](https://www.kernelcare.com)
 * KernelCare Blog: [https://www.kernelcare.com/blog/](https://www.kernelcare.com/blog/)
-* KernelCare Patch Server: [http://patches.kernelcare.com](http://patches.kernelcare.com)
-* KernelCare documentation: [http://docs.kernelcare.com/](http://docs.kernelcare.com/)
+* KernelCare Patch Server: [https://patches.kernelcare.com](https://patches.kernelcare.com)
+* KernelCare documentation: [https://docs.kernelcare.com/](https://docs.kernelcare.com/)
 * CloudLinux Network – CLN (Billing Portal): [https://cln.cloudlinux.com](https://cln.cloudlinux.com)
 * CloudLinux 24/7 online support system: [https://cloudlinux.zendesk.com](https://cloudlinux.zendesk.com)
   

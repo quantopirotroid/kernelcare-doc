@@ -5,7 +5,7 @@ KernelCare用のZabbixテンプレート
 
 `check_kcare` は非最新のサーバや非アクティブなサーバを監視する方法を提供する Nagios/Zabbix プラグインです。 KernelCare Keyに割り当てられているサーバまたはパートナーアカウントのすべてのサーバに関する情報を提供できます。
 
-このプラグインは [http://patches.kernelcare.com/downloads/nagios/check_kcare](http://patches.kernelcare.com/downloads/nagios/check_kcare) からダウンロードできます。
+このプラグインは [https://patches.kernelcare.com/downloads/nagios/check_kcare](https://patches.kernelcare.com/downloads/nagios/check_kcare) からダウンロードできます。
 
 /usr/lib/zabbix/externalscripts
 
@@ -23,5 +23,5 @@ KernelCare用のZabbixテンプレート
 
 Zabbixテンプレートは以下からダウンロードできます。:
 
-[http://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml](http://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml)
+[https://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml](https://patches.kernelcare.com/downloads/nagios/kcare_zabbix_template.xml)
 
