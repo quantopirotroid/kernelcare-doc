@@ -343,11 +343,19 @@ To see pairs of key/number of servers run:
 
 ### Script to automatically install latest patchsets
 
-It determines if latest patches are available and installs them.
+It determines if latest patches are available and installs them to the **default feed**.
 
 ```
 >kc.eportal --get-latest
 ```
+
+If you need to update other feeds that are marked for auto update instead of the default one, use a different argument:
+
+```
+>kc.eportal --auto-update
+```
+
+Note, that the latter command will update only feeds that meet the "_deploy after_" criteria.
 
 ### Unroll patches from UI
 
