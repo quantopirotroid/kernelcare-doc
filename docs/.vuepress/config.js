@@ -53,7 +53,7 @@ module.exports = {
       description: "KernelСare documentation"
     },
     "/jp/": {
-      lang: "jp",
+      lang: "ja",
       title: "ドキュメンテーション",
       description: "KernelCare ドキュメンテーション"
     }
