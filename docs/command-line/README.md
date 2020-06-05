@@ -13,7 +13,7 @@
 |-|-|
 |`-i, --info` | Display information about patches installed by KernelCare.|
 |`-u, --update ` | Download latest patches, and apply them to current kernel.|
-|`--smart-update  [since 1.6] ` | The same as --update, but uses [UPDATE_POLICY](/config_options/) to decide where to get patches.|
+|`--smart-update  [since 1.6] ` | The same as --update, but uses [UPDATE_POLICY](/config-options/) to decide where to get patches.|
 |`--unload` | Unload patches.|
 |`--auto-update` | Check if update is needed and update.|
 |`--patch-info` | Lists applied patches.|
@@ -33,8 +33,8 @@
 |`--doctor [since 2.6]` | Send a report to CloudLinux support staff for diagnostics.|
 |`--set-patch-type extra ` | To enable extra patches.|
 |`--set-patch-type free` | To enable free patches.|
-|`--set-sticky-patch SET_STICKY_PATCH` | Set patch to stick to date in format DDMMYY or retrieve it from KEY if set to KEY (no support for ePortal). Empty to unstick.   More info at [Sticky Patches](/sticky_patches/).|
-|`--tag COMMAND` | Adds an extra _Tag_ field for a server. COMMAND is a user-defined parameter. More info at [Managing Servers](/kernelcare_enterprise/#managing-servers).|
+|`--set-sticky-patch SET_STICKY_PATCH` | Set patch to stick to date in format DDMMYY or retrieve it from KEY if set to KEY (no support for ePortal). Empty to unstick.   More info at [Sticky Patches](/sticky-patches/).|
+|`--tag COMMAND` | Adds an extra _Tag_ field for a server. COMMAND is a user-defined parameter. More info at [Managing Servers](/kernelcare-enterprise/#managing-servers).|
 
 ## kcare-uname
 

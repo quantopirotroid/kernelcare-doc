@@ -2,7 +2,7 @@
 
 
 :::tip Note
-This functionality is not available for ePortal customers. If you are using ePortal, please use [Feeds](/kernelcare_enterprise/#feed-management) instead.
+This functionality is not available for ePortal customers. If you are using ePortal, please use [Feeds](/kernelcare-enterprise/#feed-management) instead.
 :::
 
 Sometimes you don't want to use the latest patches, but you'd like to control which patches are get installed instead. For example, you have tested the patch released on 25th of May 2018 and want to use that patch across all servers.

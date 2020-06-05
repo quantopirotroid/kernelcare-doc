@@ -78,8 +78,8 @@ SMTを無効にし、 [マイクロコードを更新し](/jp/how_to/#ベンダ�
 
 **内容:**
 
-* [UbuntuとDebianでのマイクロコード更新](/jp/how_to/#UbuntuとDebianでのマイクロコード更新)
-* [Red Hat Enterprise Linux（およびその派生物）でのマイクロコード更新)](/jp/how_to/#Red-HatおよびCentOSでのマイクロコード更新)
+* [UbuntuとDebianでのマイクロコード更新](/jp/how-to/#UbuntuとDebianでのマイクロコード更新)
+* [Red Hat Enterprise Linux（およびその派生物）でのマイクロコード更新)](/jp/how-to/#Red-HatおよびCentOSでのマイクロコード更新)
 
 
 ::: tip 注記

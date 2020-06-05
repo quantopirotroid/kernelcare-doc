@@ -1,7 +1,7 @@
 # Kcare-nexpose (deprecated)
 
 :::warning Warning
-This section is deprecated - refer to [Scanner Interface](/scanner_interface/) section for scanner-related information
+This section is deprecated - refer to [Scanner Interface](/scanner-interface/) section for scanner-related information
 :::
 
 

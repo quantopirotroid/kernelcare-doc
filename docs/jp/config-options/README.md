@@ -17,7 +17,7 @@ kcarectlの動作は `/etc/sysconfig/kcare/kcare.conf` を使用し、設定で�
 |`--set-patch-type extra` | 追加のパッチを有効化|
 |`--set-patch-type free` | 無料のパッチを有効化|
 |`STICKY_PATCH=KEY` | `KEY` からスティッキーパッチを取得(CLN、Key 編集を参照); IPベースのサーバまたはePortalではサポートされていません。|
-|`STICKY_PATCH=DDMMYY` | 特定の日付でのパッチを充てます。詳細情報は [Stickyパッチ](/jp/sticky_patches/) を参照ください。|
+|`STICKY_PATCH=DDMMYY` | 特定の日付でのパッチを充てます。詳細情報は [Stickyパッチ](/jp/sticky-patches/) を参照ください。|
 |`REPORT_FQDN=True|False` | ホスト名として完全に認定されたドメイン（Fully Qualified Domain）を使用する必要があります。デフォルトでは　False となっています。|
 |`FORCE_GID=N`|シンボリックリンクの保護パッチに、このグループIDを使用。デフォルトでは48（デフォルトのApacheユーザ GID）もしくは99（ `nobody` ユーザ）となっています。)|
 

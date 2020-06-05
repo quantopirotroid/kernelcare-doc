@@ -125,7 +125,7 @@ chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 </div>
 
 
-ePortal をリスタートします。([停止とスタート](/jp/kernelcare_enterprise/#停止とスタート) セクションを参照し、対応するOSを選択してください)。
+ePortal をリスタートします。([停止とスタート](/jp/kernelcare-enterprise/#停止とスタート) セクションを参照し、対応するOSを選択してください)。
 
 ## ユーザを管理する
 
@@ -193,7 +193,7 @@ KernelCare.eportalマネジメントコンソールにアクセスするには *
 
 ![](/images/access_eportal.png)
 
- [kc.eportal tool](/jp/kernelcare_enterprise/#ユーザを管理する) を使ってあなたのログイン情報を管理することができます。
+ [kc.eportal tool](/jp/kernelcare-enterprise/#ユーザを管理する) を使ってあなたのログイン情報を管理することができます。
 
 ## パッチセットの展開
 
@@ -225,7 +225,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 
 * Keyを編集するには、 ![](/images/eportal_keys_edit.png) をクリックします。 _Edit_ タブが開きます。
 * Keyを削除するには、 ![](/images/eportal_keys_remove.png) をクリックします。 Keyを削除すると、そのKeyの下にあるすべてのサーバが削除されることに注意してください。
-* Keyをクリックして Servers タブに移動すると、そのKeyの下に [登録されているサーバ](/jp/kernelcare_enterprise/#サーバの管理) のリストが表示されます。そのタブでサーバを削除することもできます。
+* Keyをクリックして Servers タブに移動すると、そのKeyの下に [登録されているサーバ](/jp/kernelcare-enterprise/#サーバの管理) のリストが表示されます。そのタブでサーバを削除することもできます。
 
 新しい登録を作成するには _Create_ タブをクリックします。
    ![](/images/key-creation_zoom70.png) 
@@ -248,7 +248,7 @@ Keyのリストに移動するには、左上のKernelCare ePortalロゴをク�
 ## サーバの管理
 
 
- [Keyを管理する](/jp/kernelcare_enterprise/#keyを管理する) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
+ [Keyを管理する](/jp/kernelcare-enterprise/#keyを管理する) のインターフェイスで Key自体をクリックすると、そのKeyに属するサーバを確認できます。
 
 ![](/images/server_list_1_zoom70.png)
 
@@ -514,8 +514,8 @@ Ansible/Puppet/Chef/Saltのような自動化ツールを使用して、多数�
 
 自動展開を始めるためには、下記の情報を特定する必要があります。:
 
-*  `eportal_srv` Ansible変数の中の ePortalサーバ名（もしくはIP）。 他の設定ファイルオプションは、 [設定オプション](/jp/config_options/) と [KernelCareクライアント設定ファイル](/jp/kernelcare_enterprise/#KernelCareクライアント設定ファイル) (ePortal)で見つけることができます。
-*  `activation_key` Ansible変数の中の アクティベーションkey。 アクティベーションkeyは、ePortalの中にある [Keyを管理する](/jp/kernelcare_enterprise/#keyを管理する) (ePortal)で、生成することができます。
+*  `eportal_srv` Ansible変数の中の ePortalサーバ名（もしくはIP）。 他の設定ファイルオプションは、 [設定オプション](/jp/config-options/) と [KernelCareクライアント設定ファイル](/jp/kernelcare_enterprise/#KernelCareクライアント設定ファイル) (ePortal)で見つけることができます。
+*  `activation_key` Ansible変数の中の アクティベーションkey。 アクティベーションkeyは、ePortalの中にある [Keyを管理する](/jp/kernelcare-enterprise/#keyを管理する) (ePortal)で、生成することができます。
 
 展開フェーズ用のAnsible playbookは、下記の様になるはずです(RPMベースのディストリビューション)。:
 
@@ -701,7 +701,7 @@ nginx エラーログ: `/var/log/nginx/error_log`
 ## Nagios と Zabbixのサポート
 
 
-バージョン1.2以降のKernelCare.ePortalは [Nagios](/jp/nagios_plugin/) および [Zabbix](/jp/zabbix_template/) モニターと同様のサーバモニターをサポートしています。
+バージョン1.2以降のKernelCare.ePortalは [Nagios](/jp/nagios-plugin/) および [Zabbix](/jp/zabbix-template/) モニターと同様のサーバモニターをサポートしています。
 
 APIを直接カールして情報を受け取ることができます:
 

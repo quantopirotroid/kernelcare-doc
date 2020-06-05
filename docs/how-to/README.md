@@ -66,7 +66,7 @@ echo on > /sys/devices/system/cpu/smt/control
 echo off > /sys/devices/system/cpu/smt/control
 ```
 
-Disabling SMT, [updating microcode](/how_to/#how-to-update-microcode-without-reboot-with-vendor-provided-package), and applying KernelCare patches will protect your systems against the ZombieLoad vulnerability. Note, only the latter action is applicable to virtual systems (e.g. VMs, VPS and other cloud instance types).
+Disabling SMT, [updating microcode](/how-to/#how-to-update-microcode-without-reboot-with-vendor-provided-package), and applying KernelCare patches will protect your systems against the ZombieLoad vulnerability. Note, only the latter action is applicable to virtual systems (e.g. VMs, VPS and other cloud instance types).
 
 ## How to update Microcode without reboot with vendor-provided package
 
@@ -83,9 +83,9 @@ This article is subject to change and will be updated with instructions for othe
 
 **Contents:**
 
-* [Updating microcode on Ubuntu and Debian](/how_to/#updating-microcode-on-ubuntu-and-debian)
-* [Updating microcode on Red Hat Enterprise Linux (and derivatives)](/how_to/#updating-microcode-on-red-hat-and-centos)
-* [Updating Microcode on CentOS 6](/how_to/#updating-microcode-on-centos-6)
+* [Updating microcode on Ubuntu and Debian](/how-to/#updating-microcode-on-ubuntu-and-debian)
+* [Updating microcode on Red Hat Enterprise Linux (and derivatives)](/how-to/#updating-microcode-on-red-hat-and-centos)
+* [Updating Microcode on CentOS 6](/how-to/#updating-microcode-on-centos-6)
 
 
 ::: tip Notes

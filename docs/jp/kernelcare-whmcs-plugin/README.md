@@ -129,7 +129,7 @@ php <whmcs_root>/clDeploy.php --migrate
 ライセンスプロビジョニング製品の価格設定をしないでください。代わりにサーバプロビジョニング製品の価格を上げることができます。
 :::
 
-1. この文書の [製品の設定](/jp/kernelcare_whmcs_plugin/#製品の設定) セクションの説明に従って、ライセンスプロビジョニング製品を準備します。
+1. この文書の [製品の設定](/jp/kernelcare-whmcs-plugin/#製品の設定) セクションの説明に従って、ライセンスプロビジョニング製品を準備します。
 2.  _Add-ons → CloudLinux Licenses Add-on → Products Relations_ の順に進み、 _Add Relation_　をクリックします。
 3.  _Main product_ ドロップダウンリストからサーバプロビジョニング製品を選択、 _Linked Product With License_ からライセンスプロビジョニング製品を選択し、 _Add Relation_ をクリックします。
 
@@ -144,7 +144,7 @@ php <whmcs_root>/clDeploy.php --migrate
 クライアントがライセンスの有無にかかわらずサーバを注文するかどうかを決定できるようにするために、Configurable Options ( [https://docs.whmcs.com/Addons_and_Configurable_Options](https://docs.whmcs.com/Addons_and_Configurable_Options)) を使用できます。
 以下にこのような接続を準備するための手順を示します。:
 
-1.  [ここ](/jp/kernelcare_whmcs_plugin/#製品の設定) に記載されているようなCloudLinuxLicenses製品を設定します。
+1.  [ここ](/jp/kernelcare-whmcs-plugin/#製品の設定) に記載されているようなCloudLinuxLicenses製品を設定します。
 2.  _Setup → Products/Services → Configurable Options_ の順に選択して、 _Create a New Group_ をクリックします。
 3. グループ名を入力して、 _New Configurable Option_ を追加し、billing cycle、price、option typeを設定します。次に変更を保存します。
 4.  _Add-ons → CloudLinux Licenses Add-on → Configurable Options Relations_ に移動して、 _Add Relation_ をクリックします。

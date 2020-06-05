@@ -127,7 +127,7 @@ If you want to offer server along with the license, perform the following steps.
 Please do not set up pricing for license provisioning product. In exchange, you can increase a price for server provisioning product.
 :::
 
-1. Prepare license provisioning product as described in the [Configuration of Product](/kernelcare_whmcs_plugin/#configuration-of-product) section of this documentation.
+1. Prepare license provisioning product as described in the [Configuration of Product](/kernelcare-whmcs-plugin/#configuration-of-product) section of this documentation.
 2. Go to _Add-ons → CloudLinux Licenses Add-on → Products Relations_ and click _Add Relation_.
 3. Select server provisioning product from the _Main product_ drop-down list and license provisioning product from _Linked Product With License_ and click _Add Relation_.
 
@@ -143,7 +143,7 @@ In order to allow your client  to decide whether he wants to order server with o
 
 Below we will show you what steps to proceed to prepare such connection:
 
-1. Configure CloudLinuxLicenses product as described [here](/kernelcare_whmcs_plugin/#configuration-of-product).
+1. Configure CloudLinuxLicenses product as described [here](/kernelcare-whmcs-plugin/#configuration-of-product).
 2. Go to _Setup → Products/Services → Configurable Options_ and click _Create a New Group_.
 3. Fill group name and add _New Configurable Option_ , set up billing cycle, price and option type. Then save changes.
 4. Go to _Add-ons → CloudLinux Licenses Add-on → Configurable Options Relations_ and click _Add Relation_.

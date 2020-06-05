@@ -125,7 +125,7 @@ chown nginx:nginx /usr/share/kcare-eportal/config/local.py
 </div>
 
 
-Restart ePortal (see [Stopping & Starting](/kernelcare_enterprise/#stopping-starting) section, choose a corresponding OS).
+Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting) section, choose a corresponding OS).
 
 ## Managing Users
 
@@ -237,7 +237,7 @@ And enter your login & password
 
 ![](/images/access_eportal.png)
 
-You can manage your login information using [kc.eportal tool](/kernelcare_enterprise/#managing-users).
+You can manage your login information using [kc.eportal tool](/kernelcare-enterprise/#managing-users).
 
 ## PatchSet Deployment
 
@@ -269,7 +269,7 @@ To go to the list of keys, click the KernelCare ePortal logo at the top left.
 
 * To edit a key, click ![](/images/eportal_keys_edit.png) . The _Edit_ tab opens.
 * To remove a key, click ![](/images/eportal_keys_remove.png) . Please note, that removing the key would remove all servers under that key.
-* Click a key to go to Servers tab with the list of [servers registered](/kernelcare_enterprise/#managing-servers) under that key. You can also remove servers on that tab.
+* Click a key to go to Servers tab with the list of [servers registered](/kernelcare-enterprise/#managing-servers) under that key. You can also remove servers on that tab.
 
 To create a new registration click _Create_ tab.
    ![](/images/key-creation_zoom70.png) 
@@ -292,7 +292,7 @@ Click _Cancel_ to return to the key list tab without adding a new key.
 ## Managing Servers
 
 
-You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/kernelcare_enterprise/#managing-keys) interface.
+You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/kernelcare-enterprise/#managing-keys) interface.
 
 ![](/images/server_list_1_zoom70.png)
 
@@ -565,8 +565,8 @@ The deployment process includes:
 
 To start the automated deployment, you need to specify the following information:
 
-* ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config_options/) and [KernelCare client config file](/kernelcare_enterprise/#kernelcare-client-config-file) (ePortal).
-* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare_enterprise/#managing-keys) (ePortal). 
+* ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config-options/) and [KernelCare client config file](/kernelcare-enterprise/#kernelcare-client-config-file) (ePortal).
+* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare-enterprise/#managing-keys) (ePortal). 
 
 Ansible playbook for deployment phase may look like:
 
@@ -720,7 +720,7 @@ By default there is no predefined parameters for eportal's logs rotation. If you
 ## Nagios & Zabbix support
 
 
-KernelCare.ePortal since version 1.2 supports server monitoring similar to [Nagios](/nagios_plugin/) & [Zabbix](/zabbix_template/) monitoring.
+KernelCare.ePortal since version 1.2 supports server monitoring similar to [Nagios](/nagios-plugin/) & [Zabbix](/zabbix-template/) monitoring.
 
 You can curl the API directly to receive the information:
 
