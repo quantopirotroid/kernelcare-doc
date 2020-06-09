@@ -387,7 +387,7 @@ kcarectl --tag command
 例:
 
 ```
-kcarectl --tag “env:prod;ubuntu”
+kcarectl --tag "env:prod;ubuntu"
 ```
 
 このサーバには2つのタグがあります。: `env:prod` と `ubuntu`.

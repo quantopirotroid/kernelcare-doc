@@ -439,7 +439,7 @@ where `command` is a parameter defined by a user. This parameter will be display
 Example:
 
 ```
-kcarectl --tag “env:prod;ubuntu”
+kcarectl --tag "env:prod;ubuntu"
 ```
 
 This server has two tags : `env:prod` and `ubuntu`.
