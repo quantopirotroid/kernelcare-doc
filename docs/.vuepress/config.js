@@ -108,17 +108,17 @@ module.exports = {
         bottomLinks: [
           {
             text: "How to",
-            url: "https://www.kernelcare.com/install-kernelcare/"
+            url: "https://www.kernelcare.com/how-to-install-kernelcare/"
           },
           {
             text: "Sales and Technical FAQs",
-            url: "https://www.kernelcare.com/faq/"
+            url: "https://www.kernelcare.com/faqs/"
           },
           {
             text: "Contact support",
             url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
           },
-          { text: "Blog", url: "https://www.kernelcare.com/blog/" }
+          { text: "Blog", url: "https://blog.kernelcare.com/" }
         ],
 
         sidebar: [
@@ -174,17 +174,17 @@ module.exports = {
         bottomLinks: [
             {
                 text: "ヘルプと使い方",
-                url: "https://www.kernelcare.com/ja/install-kernelcare/"
+                url: "https://www.kernelcare.com/how-to-install-kernelcare/"
             },
             {
                 text: "よく寄せられる質問",
-                url: "https://www.kernelcare.com/ja/faq/"
+                url: "https://www.kernelcare.com/faqs/"
             },
             {
                 text: "サポート",
-                url: "https://www.kernelcare.com/ja/support/"
+                url: "https://cloudlinux.zendesk.com/hc/en-us/requests/new"
             },
-            { text: "ブログ", url: "https://www.kernelcare.com/ja/blog/" }
+            { text: "ブログ", url: "https://blog.kernelcare.com/" }
         ],
         sidebar: [
           {
