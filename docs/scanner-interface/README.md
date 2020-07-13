@@ -51,6 +51,10 @@ After applying KernelCare patches (`kcarectl --update`) you will see rpm query r
 To see results, you should re-login to the server with `KCARE_SCANNER_USER` defined above.
 :::
 
+:::danger Warning
+_username_ should be equal to the user name that is used by the security scanner to log in to the system. KernelCare agent should be actually installed with `KCARE_SCANNER_USER` defined for Scanner Interface to operate properly (setting the variable at the run time is not enough).
+:::
+
 ## How to use
 
 It’s rather simple. New scan results after installing a package and applying a patchset should not show any kernel CVEs that are handled by KernelCare.
@@ -62,5 +66,25 @@ For example, Nessus for an old kernel shows a bunch of detected CVEs
 After patches were applied, there are no kernel-related CVEs
 
 ![](/images/scanner-manipulation-after.png)
+
+## Troubleshooting
+
+Checking whether `LD_PRELOAD` is properly defined for the local security scanner agent (we use Qualys for this example). 
+
+* Obtain the scanner agent PID:
+
+```
+ps -aux | grep qualys
+```
+
+* The output for the PID obtained above should contain LD_PRELOAD:
+
+```
+cat /proc/PID/environ
+```
+
+:::tip Note
+Qualys scanner agent is usually run as _root_, so make sure KernelCare agent is installed with KCARE_SCANNER_USER=root
+:::
 
 <Disqus/>
