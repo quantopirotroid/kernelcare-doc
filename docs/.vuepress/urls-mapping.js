@@ -391,6 +391,7 @@ module.exports = {
   "/jp/scanner_interface/#インストール": "/jp/scanner-interface/#インストール",
   "/jp/scanner_interface/#どのように使うか": "/jp/scanner-interface/#どのように使うか",
   "/jp/nagios_plugin/": "/jp/kc-agent-monitoring/#nagios-plugin",
+  "/jp/nagios-plugin/": "/jp/kc-agent-monitoring/#nagios-plugin",
   "/jp/zabbix_template/": "/jp/kc-agent-monitoring/#zabbix-template",
   "/jp/AWS_deployment_guide/": "/jp/AWS-deployment-guide/",
   "/jp/AWS_deployment_guide/#紹介資料": "/jp/AWS-deployment-guide/#紹介資料",
