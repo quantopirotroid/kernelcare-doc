@@ -137,7 +137,6 @@ module.exports = {
               "/sticky-patches/",
               "/scanner-interface/",
               "/nagios-plugin/",
-              "/datadog-integration/",
               "/zabbix-template/",
               "/upgrade/",
               "/uninstall/",
