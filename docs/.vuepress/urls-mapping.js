@@ -394,6 +394,7 @@ module.exports = {
   "/jp/nagios_plugin/": "/jp/kc-agent-monitoring/#nagios-plugin",
   "/jp/nagios-plugin/": "/jp/kc-agent-monitoring/#nagios-plugin",
   "/jp/zabbix_template/": "/jp/kc-agent-monitoring/#zabbix-template",
+  "/jp/zabbix-template/": "/jp/kc-agent-monitoring/#zabbix-template",
   "/jp/datadog-integration/": "/jp/kc-agent-monitoring/#datadog-integration",
   "/jp/AWS_deployment_guide/": "/jp/AWS-deployment-guide/",
   "/jp/AWS_deployment_guide/#紹介資料": "/jp/AWS-deployment-guide/#紹介資料",

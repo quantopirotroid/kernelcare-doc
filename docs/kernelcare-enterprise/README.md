@@ -720,7 +720,7 @@ By default there is no predefined parameters for eportal's logs rotation. If you
 ## Nagios & Zabbix support
 
 
-KernelCare.ePortal since version 1.2 supports server monitoring similar to [Nagios](/nagios-plugin/) & [Zabbix](/zabbix-template/) monitoring.
+KernelCare.ePortal since version 1.2 supports server monitoring similar to [Nagios](/kc-agent-monitoring/#nagios-plugin) & [Zabbix](/kc-agent-monitoring/#zabbix-template) monitoring.
 
 You can curl the API directly to receive the information:
 
