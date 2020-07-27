@@ -701,7 +701,7 @@ nginx エラーログ: `/var/log/nginx/error_log`
 ## Nagios と Zabbixのサポート
 
 
-バージョン1.2以降のKernelCare.ePortalは [Nagios](/jp/nagios-plugin/) および [Zabbix](/jp/zabbix-template/) モニターと同様のサーバモニターをサポートしています。
+バージョン1.2以降のKernelCare.ePortalは [Nagios](/jp/kc-agent-monitoring/#nagios-plugin) および [Zabbix](/jp/kc-agent-monitoring/#zabbix-template) モニターと同様のサーバモニターをサポートしています。
 
 APIを直接カールして情報を受け取ることができます:
 
