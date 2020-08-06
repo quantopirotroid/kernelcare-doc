@@ -260,7 +260,7 @@ Clicking on _[deploy this patch, and all before it]_ will download and deploy th
 
 #### Clean obsolete releases
 
-We periodically reduce the list of provided patches, but ePortal does nothing about it automatically. To free disk space on ePortal you can also remove old releases.
+The list of provided patches is reduced once in a month (old patches that have newer versions are removed), but resources are not deleted from ePortal machine. The control of resource deletion is in charge of the ePortal administrator. To free disk space on ePortal old release resources could be removed.
 
 To check what releases will be removed:
 
