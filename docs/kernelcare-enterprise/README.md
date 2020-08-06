@@ -258,6 +258,21 @@ Once you set up patch source access info, you will get to a list of available pa
 Clicking on _[changelog]_ will provide changelog for given patchset.
 Clicking on _[deploy this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
+#### Clean obsolete releases
+
+We periodically reduce the list of provided patches, but ePortal does nothing about it automatically. To free disk space on ePortal you can also remove old releases.
+
+To check what releases will be removed:
+
+```
+DRY_RUN=1 kc.eportal --clean-releases
+```
+
+To remove obsolete releases:
+
+```
+kc.eportal --clean-releases
+```
 
 ## Managing Keys
 
@@ -783,22 +798,6 @@ For example, to disable the default https verification you can set the `PYTHONHT
 
 ```
 echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
-```
-
-## Clean obsolete releases
-
-We periodically reduce the list of provided patches, but ePortal does nothing about it automatically. To free disk space on ePortal you can also remove old releases.
-
-To check what releases will be removed:
-
-```
-DRY_RUN=1 kc.eportal --clean-releases
-```
-
-To remove obsolete releases:
-
-```
-kc.eportal --clean-releases
 ```
 
 <Disqus/>
