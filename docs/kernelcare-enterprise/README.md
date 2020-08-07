@@ -258,6 +258,21 @@ Once you set up patch source access info, you will get to a list of available pa
 Clicking on _[changelog]_ will provide changelog for given patchset.
 Clicking on _[deploy this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
+#### Clean obsolete releases
+
+The list of provided patches is reduced once in a month (old patches that have newer versions are removed), but resources are not deleted from ePortal machine. The control of resource deletion is in charge of the ePortal administrator. To free disk space on ePortal old release resources could be removed.
+
+To check what releases will be removed:
+
+```
+DRY_RUN=1 kc.eportal --clean-releases
+```
+
+To remove obsolete releases:
+
+```
+kc.eportal --clean-releases
+```
 
 ## Managing Keys
 
