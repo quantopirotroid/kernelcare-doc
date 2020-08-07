@@ -4,7 +4,21 @@
 
 ## Built-in monitoring
 
-Find more details in [CLN documentation](https://docs.cln.cloudlinux.com/dashboard/#built-in-monitoring)
+Systems protected by KernelCare can be monitored by means of CloudLinux Network (CLN) portal available at [https://cln.cloudlinux.com](https://cln.cloudlinux.com).
+
+Click _KernelCare activation key_ to see the list of servers activated with it. Servers marked with exclamation mark do not have the latest KernelCare patches installed.
+
+![](/images/kckeymonit_zoom70.png)
+
+## KernelCare monitoring API
+
+It is possible to integrate KernelCare status monitoring with any third-party monitoring system that supports REST API.
+
+* The query syntax for key-based licenses is: `https://cln.cloudlinux.com/api/kcare/nagios/{key_id}`
+* The query syntax for IP-based licenses (resellers) is: `https://cln.cloudlinux.com/api/kcare/nagios-res/{login}/{token}`
+
+The latest CloudLinux REST API description is available at [https://cln.cloudlinux.com/clweb/downloads/cloudlinux-rest-api.pdf](https://cln.cloudlinux.com/clweb/downloads/cloudlinux-rest-api.pdf)
+
 
 ## Nagios Plugin
 
