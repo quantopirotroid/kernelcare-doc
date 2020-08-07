@@ -2,6 +2,10 @@
 
 [[toc]]
 
+## Built-in monitoring
+
+Find more details in [CLN documentation](https://docs.cln.cloudlinux.com/dashboard/#built-in-monitoring)
+
 ## Nagios Plugin
 
 
