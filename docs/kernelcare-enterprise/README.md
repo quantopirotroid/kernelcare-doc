@@ -357,6 +357,20 @@ If you need to update other feeds that are marked for auto update instead of the
 
 Note, that the latter command will update only feeds that meet the "_deploy after_" criteria.
 
+### Script to deploy patchset from a file
+
+If you have no opportunity to connect your ePortal server to the KernelCare patch server, you can install it manually:
+
+- download the selected patchset to your ePortal server:
+```
+rsync -v 04082020_1.tgz your-eportal:/tmp
+```
+
+- run the deployment tool with patchset file name as a parameter. It should be the full path to the file:
+```
+>kc.eportal --deploy /tmp/04082020_1.tgz
+```
+
 ### Unroll patches from UI
 
  
