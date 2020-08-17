@@ -1,6 +1,6 @@
-# KernelCare.ePortal
+# KernelCare Enterprise (ePortal)
 
-KernelCare.ePortal is a web management console for KernelCare for servers located behind the firewall, with no internet access. It is part of KernelCare Enterprise offering, and should be installed on premisses
+KernelCare.ePortal is a web management console for KernelCare for servers located behind the firewall, with no internet access. It is a part of KernelCare Enterprise offering, and should be installed on premises.
 
 
 ## ePortal Hardware Requirements
@@ -14,7 +14,7 @@ Requirements are always the same:
 * SSD
 
 :::tip Note
-SSD is the crucial requirement.
+SSD based storage is a crucial requirement for ePortal server.
 :::
 
 As far as other requirements concerned, we have tested the following configuration and the following number of connected servers:
