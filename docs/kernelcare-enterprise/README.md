@@ -1,7 +1,8 @@
 # KernelCare Enterprise (ePortal)
 
-KernelCare.ePortal is a web management console for KernelCare for servers located behind the firewall, with no internet access. It is a part of KernelCare Enterprise offering, and should be installed on premises.
+KernelCare Enterprise includes a web management console (ePortal) for protected environments.
 
+ePortal software can help protect servers located behind the firewall (i.e. with no internet access) and can be installed both on-premises and in the cloud. 
 
 ## ePortal Hardware Requirements
 
