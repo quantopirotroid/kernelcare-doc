@@ -1,7 +1,8 @@
 # Reseller Partner UI
 
 
-Once you have got the reseller partner access, in IP Reseller Partner UI you can view and manage IP licenses, billing options, profile details. Here you can track your money balance, licenses count and licenses prices as well as using IP address search to find customers.
+Once you have got the reseller partner access, in IP Reseller Partner UI you can view and manage IP licenses, billing options, profile details. Here you can track your money balance, licenses count and licenses prices as well as using IP address search to find customers. You can find more information about KernelCare licensing [here](https://www.kernelcare.com/pricing/).
+
 
 ## Server Section
 
