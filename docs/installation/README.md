@@ -1,5 +1,8 @@
 # Installation of KernelCare
 
+:::warning Note
+BETA version of KernelCare package with KC+ functionality is available [here](http://patches04.kernelcare.com/userspace/kernelcare-2.32-1.el7.1595920539.56067.28.x86_64.rpm).
+:::
 
 KernelCare is compatible with 64-bit versions of CloudLinuxOS/CentOS/RHEL 6,7 and 8, Oracle Linux 6 and 7, Amazon Linux 1 and 2, Virtuozzo/PCS/OpenVZ 2.6.32, Debian 8,9 and 10, Proxmox VE 5 and 6, Virt-SIG/Xen4CentOS 6 and 7, Ubuntu 14.04, 15.04 and 16.04 kernels. The list of compatible kernels can be found on the following link: [https://patches.kernelcare.com/](https://patches.kernelcare.com/) .
 
