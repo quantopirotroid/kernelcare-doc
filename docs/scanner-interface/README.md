@@ -87,4 +87,3 @@ cat /proc/PID/environ
 Qualys scanner agent is usually run as _root_, so make sure KernelCare agent is installed with KCARE_SCANNER_USER=root
 :::
 
-<Disqus/>
