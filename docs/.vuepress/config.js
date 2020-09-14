@@ -143,6 +143,7 @@ module.exports = {
               "/AWS-deployment-guide/",
               "/reseller-partner-ui/",
               "/kernelcare-enterprise/",
+              "/kernelcare-plus/",
               "/kcare-nexpose/",
               "/kernelcare-whmcs-plugin/",
               "/proxy-settings/",
