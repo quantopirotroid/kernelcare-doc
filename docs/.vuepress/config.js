@@ -127,6 +127,7 @@ module.exports = {
             collapsable: false,
             children: [
               "/installation/",
+              "/kernelcare-plus/",
               "/settings/",
               "/command-line/",
               "/how-to/",
@@ -143,7 +144,6 @@ module.exports = {
               "/AWS-deployment-guide/",
               "/reseller-partner-ui/",
               "/kernelcare-enterprise/",
-              "/kernelcare-plus/",
               "/kcare-nexpose/",
               "/kernelcare-whmcs-plugin/",
               "/proxy-settings/",
@@ -192,6 +192,7 @@ module.exports = {
             collapsable: false,
             children: [
               "/jp/installation/",
+              "/jp/kernelcare-plus/",
               "/jp/settings/",
               "/jp/command-line/",
               "/jp/how-to/",
