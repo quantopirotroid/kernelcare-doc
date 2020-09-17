@@ -11,15 +11,15 @@ Glibc and OpenSSL patching is now available for the following operating systems:
 ### RPM-based systems
 
 ``` bash
-$ wget https://patches04.kernelcare.com/userspace/kernelcare-2.32-1.el7.1595920539.56067.28.x86_64.rpm
-$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com yum reinstall kernelcare_2.32-1.1599206356.56067.32_amd64.deb
+$ wget https://patches04.kernelcare.com/userspace/kernelcare-2.32-1.el7.1600327068.56067.40.x86_64.rpm
+$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com yum reinstall kernelcare-2.32-1.el7.1600327068.56067.40.x86_64.rpm
 ```
 
 ### DEB-based systems
 
 ``` bash
-$ wget https://patches04.kernelcare.com/userspace/kernelcare_2.32-1.1599206356.56067.32_amd64.deb
-$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com dpkg -i kernelcare_2.32-1.1598517081.56067.28_amd64.deb
+$ wget http://patches04.kernelcare.com/userspace/kernelcare_2.32-1.1600328291.56067.40_amd64.deb
+$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com dpkg -i kernelcare_2.32-1.1600328291.56067.40_amd64.deb
 ```
 
 ## Registration
