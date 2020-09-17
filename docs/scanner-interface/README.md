@@ -1,5 +1,9 @@
 # Scanner Interface
 
+::: warning
+Scanner Interface is only available for KernelCare+ and KernelCare Enterprise
+:::
+
 ## Issue description
 
 Commonly used security scanners can still see CVEs even if they are patched by KernelCare. It turns out that all their decisions about CVE are based on:
