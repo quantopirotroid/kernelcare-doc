@@ -646,25 +646,8 @@ Patches are stored in: `/usr/share/kcare-eportal/patches`
 ## Stopping & Starting
 
 
-### KernelCare.ePortal on EL6
-
-
-
-To stop/start/reload/restart configuration of nginx server:
-
-```
-$ /etc/init.d/nginx stop|start|reload|restart
-```
-
-To stop/start/restart ePortal (Python):
-
-```
-$ /etc/init.d/uwsgi stop|start|restart
-```
-
 
 ### KernelCare.ePortal on EL7
-
 
 
 To stop/start/reload/restart configuration of nginx server:
