@@ -214,12 +214,12 @@ KernelCare.ePortal has built-in mechanism to download latest patches. To start u
 ![](/images/eportal_dep01_1_zoom70.png)
 
 
-Once you set up patch source access info, you will get to a list of available patchsets. You can always go back & change your access info by clicking _Source_ link.
+Once you set up patch source access info, you will get to a list of available patchsets. You can always go back and change your access info by clicking the _Source_ link.
 
 ![](/images/eportal_dep02_1_zoom70.png)
 
 Clicking on _[changelog]_ will provide changelog for given patchset.
-Clicking on _[deploy this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
+Clicking on _[enable this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
 #### Clean obsolete releases
 
