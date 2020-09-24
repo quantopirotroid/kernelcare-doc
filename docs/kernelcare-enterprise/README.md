@@ -31,44 +31,6 @@ As far as other requirements concerned, we have tested the following configurati
 
 ## Installation
 
-### KernelCare.ePortal on EL6
-
-
-To install KernelCare.ePortal, start with the minimal image of EL6
-
-For installation and workability of e-portal nginx web server is required. We recommend to use a stable version from the official nginx repository:
-
-```
-$ cat > /etc/yum.repos.d/nginx.repo <<EOL
-[nginx]
-name=nginx repo
-baseurl=https://nginx.org/packages/centos/6/\$basearch/
-gpgcheck=0
-enabled=1
-EOL
-```
-
-Please find more information at [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable)
-
-Setup KernelCare.ePortal repo:
-
-```
-$ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
-[kcare-eportal]
-name=kcare-eportal
-baseurl=https://repo.eportal.kernelcare.com/x86_64/
-gpgkey=https://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
-enabled=1
-gpgcheck=1
-EOL
-```
-
-Install KernelCare.eportal:
-
-```
-$ yum install kcare-eportal
-```
-
 
 ### KernelCare.ePortal on EL7
 
@@ -684,25 +646,8 @@ Patches are stored in: `/usr/share/kcare-eportal/patches`
 ## Stopping & Starting
 
 
-### KernelCare.ePortal on EL6
-
-
-
-To stop/start/reload/restart configuration of nginx server:
-
-```
-$ /etc/init.d/nginx stop|start|reload|restart
-```
-
-To stop/start/restart ePortal (Python):
-
-```
-$ /etc/init.d/uwsgi stop|start|restart
-```
-
 
 ### KernelCare.ePortal on EL7
-
 
 
 To stop/start/reload/restart configuration of nginx server:
