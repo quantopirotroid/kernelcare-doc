@@ -145,6 +145,7 @@ module.exports = {
               "/reseller-partner-ui/",
               "/kernelcare-enterprise/",
               "/kcare-nexpose/",
+              "/uchecker/",
               "/kernelcare-whmcs-plugin/",
               "/proxy-settings/",
               "/eol-ubuntu-lts-kernels-support/"
