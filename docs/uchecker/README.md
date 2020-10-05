@@ -10,7 +10,7 @@ The UChecker (originated from "userspace checker") works with all modern Linux D
 
 This activity diagram shows how UChecker works:
 
-![](/images/uchecker-diagram.png)
+![](/images/uchecker.jpg)
 
 ## Usage
 
@@ -35,7 +35,6 @@ The following information is available in the output:
 
 * Process ID
 * Process Name
-* Shared library build ID
 
 
 ## Troubleshooting
