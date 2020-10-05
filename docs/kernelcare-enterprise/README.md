@@ -659,7 +659,7 @@ $ systemctl stop|start|reload|restart nginx
 To stop/start/restart ePortal (Python):
 
 ```
-$ systemctl stop|start|restart emperor.uwsgi
+$ systemctl stop|start|restart eportal
 ```
 
 
