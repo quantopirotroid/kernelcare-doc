@@ -665,12 +665,11 @@ $ systemctl stop|start|restart eportal
 
 ## Log Files
 
+ePortal log: `journalctl -u eportal`
 
-ePortal messages/errors: `/var/log/uwsgi/uwsgi-emperor.log`
+Nginx ePortal access log: `/var/log/nginx/access.log`
 
-nginx ePortal access log: `/var/log/nginx/kcare-eportal.log`
-
-nginx error log: `/var/log/nginx/error_log`
+Nginx error log: `/var/log/nginx/error.log`
 
 
 ### Log Rotation
