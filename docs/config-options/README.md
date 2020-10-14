@@ -5,7 +5,7 @@ kcarectl behavior can be configured using `/etc/sysconfig/kcare/kcare.conf`
 
 | | |
 |-|-|
-|`AUTO_UPDATE=YES|NO | `YES` - enable auto-update; `NO` - disable auto-update.|
+|`AUTO_UPDATE=YES|NO` | `YES` - enable auto-update; `NO` - disable auto-update.|
 |`chkconfig kcare off` | Disable auto-update after restart.|
 |`PATCH_METHOD=normal|nofreeze|smart` | `Normal` - (default) use freezer;<br>`Nofreeze` - don't use freezer to freeze processes;<br> `Smart` - smart freezer freezes only threads that need to be frozen for patching [kernelcare 2.3+].|
 |`PATCH_SERVER` | Server to use to download patches.|
