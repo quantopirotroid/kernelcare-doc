@@ -214,12 +214,12 @@ KernelCare.ePortal has built-in mechanism to download latest patches. To start u
 ![](/images/eportal_dep01_1_zoom70.png)
 
 
-Once you set up patch source access info, you will get to a list of available patchsets. You can always go back & change your access info by clicking _Source_ link.
+Once you set up patch source access info, you will get to a list of available patchsets. You can always go back and change your access info by clicking the _Source_ link.
 
 ![](/images/eportal_dep02_1_zoom70.png)
 
 Clicking on _[changelog]_ will provide changelog for given patchset.
-Clicking on _[deploy this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
+Clicking on _[enable this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
 #### Clean obsolete releases
 
@@ -659,18 +659,17 @@ $ systemctl stop|start|reload|restart nginx
 To stop/start/restart ePortal (Python):
 
 ```
-$ systemctl stop|start|restart emperor.uwsgi
+$ systemctl stop|start|restart eportal
 ```
 
 
 ## Log Files
 
+ePortal log: `journalctl -u eportal`
 
-ePortal messages/errors: `/var/log/uwsgi/uwsgi-emperor.log`
+Nginx ePortal access log: `/var/log/nginx/access.log`
 
-nginx ePortal access log: `/var/log/nginx/kcare-eportal.log`
-
-nginx error log: `/var/log/nginx/error_log`
+Nginx error log: `/var/log/nginx/error.log`
 
 
 ### Log Rotation
@@ -760,4 +759,4 @@ For example, to disable the default https verification you can set the `PYTHONHT
 echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
 ```
 
-<Disqus/>
+

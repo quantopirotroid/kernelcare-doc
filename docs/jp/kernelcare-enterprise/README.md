@@ -30,45 +30,6 @@ SSDは非常に重要な要件です。
 
 ## インストール
 
-### EL6上のKernelCare.ePortal
-
-
-KernelCare.ePortalをインストールするには、EL6の最小イメージから始めてください。
-
-e-portalのインストールと作業性のために、nginx Webサーバが必要となってきます。オフィシャルnginxリポジトリからの安定版を使用することをお勧めします。:
-
-```
-$ cat > /etc/yum.repos.d/nginx.repo <<EOL
-[nginx]
-name=nginx repo
-baseurl=https://nginx.org/packages/centos/6/\$basearch/
-gpgcheck=0
-enabled=1
-EOL
-```
-
-詳細は [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable) をご覧ください。
-
-KernelCare.ePortalリポジトリを設定します。:
-
-```
-$ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
-[kcare-eportal]
-name=kcare-eportal
-baseurl=https://repo.eportal.kernelcare.com/x86_64/
-gpgkey=https://repo.cloudlinux.com/kernelcare-debian/6/conf/kcaredsa_pub.gpg
-enabled=1
-gpgcheck=1
-EOL
-```
-
-KernelCare.eportalをインストールします。:
-
-```
-$ yum install kcare-eportal
-```
-
-
 ### EL7上のKernelCare.ePortal
 
 
@@ -654,26 +615,7 @@ $ cd /usr/share/kcare-eportal && python createdb.py
 ## 停止とスタート
 
 
-### EL6上のKernelCare.ePortal
-
-
-
-nginxサーバの設定を 停止/スタート/再読み込み/再スタート するには次のコマンドを実行します。:
-
-```
-$ /etc/init.d/nginx stop|start|reload|restart
-```
-
-ePortalを 停止/スタート/再スタート するには、次のコマンドを実行します。（Python）:
-
-```
-$ /etc/init.d/uwsgi stop|start|restart
-```
-
-
 ### EL7上のKernelCare.ePortal
-
-
 
 nginxサーバの設定を 停止/スタート/再読み込み/再スタート するには次のコマンドを実行します。:
 
