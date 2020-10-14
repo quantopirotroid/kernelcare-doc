@@ -32,7 +32,7 @@ You can choose any date within the last 60 days. You cannot choose today's date 
 :::
 
 
-## How to find a proper sticky patch name
+#### How to find a proper sticky patch name
 
 Let's assume that you have some kernel patch that you want to "stick" with. All you need is to find a proper label for that patch.
 
