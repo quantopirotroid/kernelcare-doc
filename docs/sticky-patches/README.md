@@ -32,3 +32,11 @@ You can choose any date within the last 60 days. You cannot choose today's date 
 :::
 
 
+#### How to find a proper sticky patch name
+
+Let's assume that you have some kernel patch that you want to "stick" with. All you need is to find a proper label for that patch.
+
+![sticky-proper-label](/images/sticky-proper-label.png)
+
+As you can see, the patch was released at 2020-09-16. And if apply label's date format, it becomes `16092020` that will be the sticky patch value.
+
