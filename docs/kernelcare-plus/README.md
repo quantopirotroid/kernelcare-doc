@@ -8,34 +8,32 @@ Glibc and OpenSSL patching is now available for the following operating systems:
 
 ## Installation and Upgrade
 
-### RPM-based systems
-
-``` bash
-$ wget https://patches04.kernelcare.com/userspace/kernelcare-2.32-1.el7.1600327068.56067.40.x86_64.rpm
-$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com yum reinstall kernelcare-2.32-1.el7.1600327068.56067.40.x86_64.rpm
-```
-
-### DEB-based systems
-
-``` bash
-$ wget http://patches04.kernelcare.com/userspace/kernelcare_2.32-1.1600328291.56067.40_amd64.deb
-$ KCARE_PATCH_SERVER=https://patches04.kernelcare.com dpkg -i kernelcare_2.32-1.1600328291.56067.40_amd64.deb
-```
-
-## Registration
-
-``` bash
-kcarectl --register KEY
-```
-
-Contact your Account Manager to obtain KernelCare+ activation key. if you do not have an AM, please contact sales@kernelcare.com
+Userspace processes patching feature is availiable in kernelcare package.
 
 ## Usage
 
-Additional _userspace_ parameter should be present in each [CLI command](/command-line/). For example:
+To apply availiable patches to all userspace processes  you can run:
 
 ``` bash
-$ kcarectl --userspace --unload
-$ kcarectl --userspace --update
-$ kcarectl --userspace --info
+$ kcarectl --lib-update
+```
+
+To gather information about which proccese were patched:
+
+```bash
+$ kcarectl --lib-info
+```
+
+To unpatch all involved processes use:
+
+```bash
+$ kcarectl --lib-unload
+```
+
+## Auto update
+
+Userspace patching cron job is disabled by default and to enable it run:
+
+```bash
+libcare-cron init
 ```
