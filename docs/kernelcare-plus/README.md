@@ -6,25 +6,25 @@ KernelCare agent package with **glibc** and **openssl** patching functionality i
 
 Glibc and OpenSSL patching is now available for the following operating systems: CentOS/CloudLinux OS 7, Debian 9/10, Ubuntu 16.04/18.04
 
-## Installation and Upgrade
+## Installation and upgrade
 
-Userspace processes patching feature is availiable in kernelcare package.
+Userspace processes patching feature is available in the KernelCare package.
 
 ## Usage
 
-To apply availiable patches to all userspace processes  you can run:
+To apply the available patches to all userspace processes, run the following command:
 
 ``` bash
 $ kcarectl --lib-update
 ```
 
-To gather information about which proccese were patched:
+To gather information about what processes were patched, run the following command:
 
 ```bash
 $ kcarectl --lib-info
 ```
 
-To unpatch all involved processes use:
+To unpatch all involved processes, run the following command:
 
 ```bash
 $ kcarectl --lib-unload
@@ -32,7 +32,7 @@ $ kcarectl --lib-unload
 
 ## Auto update
 
-Userspace patching cron job is disabled by default and to enable it run:
+Userspace patching cron job is disabled by default. To enable it, run the following command:
 
 ```bash
 libcare-cron init
