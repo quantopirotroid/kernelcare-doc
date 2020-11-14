@@ -59,6 +59,22 @@ wget -qq -O - https://kernelcare.com/checker | python
 
 More information can be found on the link: [https://www.kernelcare.com/faq/](https://www.kernelcare.com/faq/)
 
+#### Update 
+
+To update kernelcare agent package to the latest version use: 
+
+- For rpm-based distributives (CentOS, RedHat, etc):
+
+```
+yum install -y kernelcare
+```
+
+- For apt-based distributives (Debian, Ubuntu, etc):
+
+```
+apt-get install kernelcare
+```
+
 ## Switching from Ksplice
 
 
