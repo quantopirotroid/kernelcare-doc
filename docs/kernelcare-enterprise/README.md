@@ -36,7 +36,13 @@ KernelCare.ePortal is compatible with 64-bit versions of CentOS 7 and 8. To inst
 For installation and workability of ePortal the Nginx web server is required. We recommend to use stable version from the official Nginx repository:
 
 ```
-$ cat > /etc/yum.repos.d/nginx.repo <<EOL[nginx]name=nginx repobaseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/gpgcheck=0enabled=1EOL
+$ cat > /etc/yum.repos.d/nginx.repo <<EOL
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/
+gpgcheck=0
+enabled=1
+EOL
 ```
 
 You can find more information at [https://nginx.org/en/linux_packages.html#stable](https://nginx.org/en/linux_packages.html#stable)
@@ -44,7 +50,14 @@ You can find more information at [https://nginx.org/en/linux_packages.html#stabl
 Setup KernelCare.ePortal repo:
 
 ```
-$ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL[kcare-eportal]name=KernelCare ePortalbaseurl=https://www.repo.cloudlinux.com/kcare-eportal/\$releasever/\$basearch/enabled=1gpgkey=https://repo.cloudlinux.com/kernelcare/RPM-GPG-KEY-KernelCaregpgcheck=1EOL
+$ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
+[kcare-eportal]
+name=KernelCare ePortal
+baseurl=https://www.repo.cloudlinux.com/kcare-eportal/\$releasever/\$basearch/
+enabled=1
+gpgkey=https://repo.cloudlinux.com/kernelcare/RPM-GPG-KEY-KernelCare
+gpgcheck=1
+EOL
 ```
 
 Install KernelCare.eportal:
