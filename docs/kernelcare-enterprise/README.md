@@ -1,14 +1,16 @@
 # KernelCare Enterprise (ePortal)
 
-KernelCare Enterprise includes a web management console (ePortal) for protected environments.
+KernelCare Enterprise includes a web management console (ePortal)
+for protected environments.
 
-ePortal software can help protect servers located behind the firewall (i.e. with no internet access) and can be installed both on-premises and in the cloud. 
+ePortal software can help protect servers located behind the
+firewall (i.e. with no internet access) and can be installed both
+on-premises and in the cloud.
+
 
 ## ePortal Hardware Requirements
 
-ePortal machine disk size doesn't change with the number of connected servers.
-
-Requirements are always the same:
+**Disk**
 
 * 100 GB minimum
 * 200 GB recommended
@@ -18,30 +20,39 @@ Requirements are always the same:
 SSD based storage is a crucial requirement for ePortal server.
 :::
 
-As far as other requirements concerned, we have tested the following configuration and the following number of connected servers:
+**CPU**
+
+As far as other requirements concerned, we have tested the following configuration
+and the following number of connected servers:
 
 * 10k of connected machines is the maximum for the following requirements:
   * VM
   * 1 VCPU
-  * 1 GB RAM 
+  * 1 GB RAM
+
 * 75k of connected machines is the maximum for the following requirements:
   * Core i5
   * 1 CPU
   * 4 GB RAM
 
+
 ## Installation
 
-KernelCare.ePortal is compatible with 64-bit versions of CentOS 7 and 8. To install KernelCare.ePortal, start with the minimal image of EL7 or EL8. 
+KernelCare.ePortal is compatible with 64-bit versions of CentOS 7 and 8.
+To install KernelCare.ePortal, start with the minimal image of EL7 or EL8.
 
-For installation and workability of ePortal the Nginx web server is required. We recommend to use stable version from the official Nginx repository:
+For installation and workability of ePortal the Nginx web server is required.
+We recommend to use stable version from the official Nginx repository:
 
 ```
-$ cat > /etc/yum.repos.d/nginx.repo <<EOL
+cat > /etc/yum.repos.d/nginx.repo <<EOL
 [nginx]
-name=nginx repo
-baseurl=https://nginx.org/packages/centos/\$releasever/\$basearch/
-gpgcheck=0
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/\$releasever/\$basearch/
+gpgcheck=1
 enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
 EOL
 ```
 
@@ -50,7 +61,7 @@ You can find more information at [https://nginx.org/en/linux_packages.html#stabl
 Setup KernelCare.ePortal repo:
 
 ```
-$ cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
+cat > /etc/yum.repos.d/kcare-eportal.repo <<EOL
 [kcare-eportal]
 name=KernelCare ePortal
 baseurl=https://www.repo.cloudlinux.com/kcare-eportal/\$releasever/\$basearch/
@@ -63,32 +74,32 @@ EOL
 Install KernelCare.eportal:
 
 ```
-$ yum install -y kcare-eportal
+yum install -y kcare-eportal
 ```
 
 ## How to adjust proxy on ePortal machine
 
-On the ePortal machine, you should define the same proxy settings as you use in the command line.
+On the ePortal machine, you should define the same proxy settings as you use
+in the command line.
 
-To do so, add <span class="notranslate">`PROXY = 'https://example.com'`</span> to the following file: <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span>
-
-If this file doesn't exist, create it with a NGINX owner:
+To do so, add <span class="notranslate">`PROXY = 'http://example.com:3128'`</span>
+into <span class="notranslate">`/usr/share/kcare-eportal/config/local.py`</span> file:
 
 <div class="notranslate">
 
 ```
-echo "PROXY = 'https://example.com'" > /usr/share/kcare-eportal/config/local.py
-chown nginx:nginx /usr/share/kcare-eportal/config/local.py
+echo -e "\nPROXY = 'http://example.com:3128'" >> /usr/share/kcare-eportal/config/local.py
 ```
 </div>
 
+Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting)
+section, choose a corresponding OS).
 
-Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting) section, choose a corresponding OS).
 
 ## Managing Users
 
+You can manage portal using `kc.eportal` utility:
 
-You can manage portal using `/usr/bin/kc.eportal` utility:
 | | | |
 |-|-|-|
 |`-l` | `--list-users`| list all users|
@@ -100,96 +111,189 @@ You can manage portal using `/usr/bin/kc.eportal` utility:
 To add a user:
 
 ```
-$ kc.eportal -a admin -p AdminPassword
+kc.eportal -a admin -p AdminPassword
 ```
 
 To change user's password:
 
 ```
-$ kc.eportal -c admin -p NewPassword
+kc.eportal -c admin -p NewPassword
 ```
 
-### Authorization using LDAP
-
-If you are using ePortal but would like to restrict access for a specific user group then LDAP authorization allows you to check if a user is a member of that specific group.
-LDAP search query determines if a user is a member of a group with allowed access.
-Moreover, when using group authorization you need to make sure that a user with a specific DN is a member of that allowed access group.
-
-For example, if you’d like to allow access to ePortal server for the users from the `mathematicians` group, you might have a configuration like this:
+Set user as read-only:
 
 ```
-URL: ldap://ldap.forumsys.com 
-Filter: dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com)) 
-Connection string: uid=%s,dc=example,dc=com 
+kc.eportal -r user
+User 'user' is now readonly
 ```
 
-To make any user with any DN to have access to the ePortal server, you might have a configuration like this:
 
-```
-URL: ldap://ldap.forumsys.com 
-Connection string: uid=%s,dc=example,dc=com
-```
+## Authentication using LDAP
 
-**URL**
+ePortal supports LDAP authentication via bind operation. Every user should
+have a DN with an ability to perform bind request. ePortal doesn't sync
+users so you don't need to set special DN/password to access LDAP server.
 
-* `ldap://example.com:389` — a verified encrypted (TLS) connection;
-* `ldaps://example.com:636` — an SSL connection.
+If you have a question on configuring your LDAP access, please contact
+our [support](https://www.kernelcare.com/support/).
 
-**Filter**
+### Configuration
 
-* `dc=example,dc=com??sub?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com))`
+LDAP configuration settings are available inside `Settings / LDAP` navigation item.
 
-  Filter could be empty as ePortal uses this filter to make a search after LDAP bind (if the result is not empty, the user is authorized).
+#### URL
 
-**Connection String (DN template)**
+Specifies host, port and protocol of LDAP server to connect to.
 
-* `uid=%s,dc=example,dc=com`
+Format: `<scheme>://<host>[:port][?params]`.
 
-  Must contain login placeholder (`%s`).
+* **scheme**:
+  * `ldap`: a verified encrypted TLS connection, you can specify `tls=0` to use
+    insecure connection;
+  * `ldaps`: an SSL connection;
+* **host**: hostname or ip of your LDAP server;
+* **port**: custom port, by default 389 for `ldap` and 636 for `ldaps` scheme;
+* **params**:
+  * `strict_check=0`: enable/disable strict SSL certificate verification (enabled by default);
+  * `tls=0`: enable/disable TLS handshake on connect (enabled by default);
+  * `timeout=30`: LDAP server connection timeout (in seconds, 5 by default).
 
-You can use URL to adjust security and timeout parameters
+For example:
 
-* `strict_check=0` — to disable strict certificate check (enabled by default);
-* `tls=0` — to disable TLS (enabled by default);
-* `timeout=30` (in seconds, 5 by default).
-  
-For example, the URL with the security parameters:
+* `ldap://ldap.forumsys.com?tls=0&timeout=30`: use insecure connection with 30s
+  connection timeout.
 
-```
-ldap://example.com?strict_check=0&timeout=30&tls=0
-```
+#### Connection String (DN template)
 
-:::tip Note
-* You could use `%s` in both `Connection String` and `Filter` fields as a placeholder for user login. 
-* Each LDAP implementation has its own peculiar properties, so we cannot provide any specific information about LDAP URL configuration because it depends entirely on the exact LDAP server configuration.
-:::
+Connection string is a DN template used in LDAP bind operation. All `%s`
+template placeholders will be replaced with username from login form.
 
-#### Additional
+For example: `uid=%s,dc=example,dc=com`.
 
-* To retrieve more information, please see [The LDAP URL Format RFC](https://tools.ietf.org/html/rfc2255).
-* If you have a question on configuring your LDAP access, please contact our [support](https://www.kernelcare.com/support/).
+Some LDAP implementations support additional templates for bind requests:
 
-#### Log in to ePortal with your LDAP credentials
+* Active Directory accepts `%s@example.com` template;
+* `cn=%s,dc=example,dc=com` or `email=%s,dc=example,dc=com` can be also valid.
 
-When you log in to ePortal with your LDAP credentials for the first time, a user with LDAP username, read-only permissions, and `LDAP` description is created in the database by default (`https://<eportal>/admin/user/`).
+#### Filter
 
-In the picture, you can see one user created with `kc.eportal` command line interface and two users logged in with LDAP credentials.
+Filter is an optional setting which specifies parameters for an additional LDAP
+search request to limit users who have access to ePortal. Usually it is a check
+of a group user belongs to. If search returns non-empty result user will be
+considered authenticated.
+
+Format: `<base>??<scope>?<filter>`, is a part of
+[The LDAP URL Format RFC](https://tools.ietf.org/html/rfc2255).
+
+* **base**: a search base, a root node to perform search from;
+* **scope**: a search scope;
+  * `base`: search only for base (default);
+  * `one`: search for direct ascendants only (one level deep from base);
+  * `sub`: search in whole tree;
+* **filter**: search filter to apply.
+
+For example: `dc=example,dc=com??one?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com))`
+
+Take note. You can use `%s` placeholder in `Filter` setting as well. It will be
+replaced with username from login form.
+
+### Login process
+
+When a user logs in to ePortal, ePortal checks the user credentials in the local
+database at first. If the credentials are found, the user will be authenticated,
+and only if the user credentials are not found, ePortal redirects to LDAP.
+
+When you log in to ePortal with your LDAP credentials for the first time,
+a user with LDAP username, read-only permissions, and `LDAP` description
+is created in the database by default (`https://<eportal>/admin/user/`).
+
+In the picture, you can see one user created with `kc.eportal` command line
+interface and two users logged in with LDAP credentials.
 
 ![](/images/eportalLDAPusers.png)
 
-To set this LDAP user administrator permissions, set `read-only=False` (edit access required).
+:::tip Note
+Take note. All fresh LDAP users have read-only permissions. You can set
+admin rights on `User edit` page by turning off `Readonly` field.
+:::
 
-#### Is there a difference between local users and LDAP users?
 
-The difference is in the login procedure. Login and password for a local user are saved in the local database but for an LDAP user, only login and permission are saved in the local database and authorization proceeds via LDAP server.
+### Basic setup example
 
-When a user logs in to ePortal, ePortal checks the user credentials in the local database at first. If the credentials are found, the user will be authorized, and only if the user credentials are not found, ePortal redirects to LDAP.
+This and following example are based on public test LDAP server
+[ldap.forumsys.com](https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/).
+
+Here is a list of our users:
+
+```
+~$ ldapsearch -H ldap://ldap.forumsys.com -LLL -x -b 'dc=example,dc=com' '(objectClass=person)' dn
+dn: uid=tesla,dc=example,dc=com
+dn: uid=gauss,dc=example,dc=com
+...
+```
+
+Basic setup only checks if provided username/password can bind to your directory
+service. Take note: all fresh users have read-only permission. So you can
+safely allow to login into eportal for all LDAP users and set correct
+permissions individually.
+
+For basic setup you should fill `Url` and  `Connection string` settings:
+
+|Setting|Value|
+|-|-|
+|URL|ldap://ldap.forumsys.com?tls=0|
+|Connection string|uid=%s,dc=example,dc=com|
+
+After that you can login using `gauss:password` or `tesla:password` credentials.
+
+### Filter setup example
+
+Filter allows to limit a set of users permitted to login into ePortal, for
+example users belonging to `mathematicians` group.
+
+Here are our example groups:
+
+```
+~$ ldapsearch -H ldap://ldap.forumsys.com -LLL -x -b 'dc=example,dc=com' '(objectClass=groupOfUniqueNames)' dn
+dn: ou=mathematicians,dc=example,dc=com
+dn: ou=scientists,dc=example,dc=com
+...
+```
+
+And `mathematicians` group attributes:
+
+```
+~$ ldapsearch -H ldap://ldap.forumsys.com -LLL -x -b 'dc=example,dc=com' '(ou=mathematicians)'
+dn: ou=mathematicians,dc=example,dc=com
+uniqueMember: uid=euclid,dc=example,dc=com
+uniqueMember: uid=riemann,dc=example,dc=com
+uniqueMember: uid=euler,dc=example,dc=com
+uniqueMember: uid=gauss,dc=example,dc=com
+uniqueMember: uid=test,dc=example,dc=com
+ou: mathematicians
+cn: Mathematicians
+objectClass: groupOfUniqueNames
+objectClass: top
+```
+
+ePortal LDAP settings to limit allowed users:
+
+|Setting|Value|
+|-|-|
+|URL|ldap://ldap.forumsys.com?tls=0|
+|Filter|dc=example,dc=com??one?(&(ou=mathematicians)(uniqueMember=uid=%s,dc=example,dc=com))|
+|Connection string|uid=%s,dc=example,dc=com|
+
+Filter idea is to find the `mathematicians` group which has an attribute
+`uniqueMember` equal to DN of our user who tries to login.
+
+After that you can login using `gauss:password` but not `tesla:password` credentials.
+
 
 ## Accessing ePortal
 
-
 To access KernelCare.eportal management console, connect to:
-**https://YOUR_IP/admin**
+**http://YOUR_IP/admin**
 
 And enter your login & password
 
@@ -197,28 +301,76 @@ And enter your login & password
 
 You can manage your login information using [kc.eportal tool](/kernelcare-enterprise/#managing-users).
 
+
 ## PatchSet Deployment
 
-
-:::tip Note
-ePortal v0.8+
-:::
-
-KernelCare.ePortal has built-in mechanism to download latest patches. To start using it, click _Patch Source_ link in KernelCare.ePortal navigational bar and then click Settings. To get access to the Patch Source, please contact sales@kernelcare.com and request your Patch Source access credentials.
+KernelCare.ePortal has built-in mechanism to download latest patches. To start
+using it, click _Settings_ link in KernelCare.ePortal navigational bar and
+then click _Patch Source_. To get access, please contact
+[sales@kernelcare.com](mailto:sales@kernelcare.com) and request your ePortal
+access credentials.
 
 ![](/images/eportal_dep01_1_zoom70.png)
 
-
-Once you set up patch source access info, you will get to a list of available patchsets. You can always go back and change your access info by clicking the _Source_ link.
+Once you set up patch source access info, you will get to a list of available patchsets.
 
 ![](/images/eportal_dep02_1_zoom70.png)
 
 Clicking on _[changelog]_ will provide changelog for given patchset.
-Clicking on _[enable this patch, and all before it]_ will download and deploy this patchset and all the patchsets above. It is impossible to deploy patchsets out of order.
 
-#### Clean obsolete releases
+Clicking on _[enable this patch, and all before it]_ will download and deploy
+this and earlier patchsets.
 
-The list of provided patches is reduced once in a month (old patches that have newer versions are removed), but resources are not deleted from ePortal machine. The control of resource deletion is in charge of the ePortal administrator. To free disk space on ePortal old release resources could be removed.
+To unroll patches click the button _Roll back this patch, and all after it_.
+Use it to roll back the patch and all the following patches.
+
+To unroll patchset from CLI, run:
+
+```
+kc.eportal --unroll 16012017_1
+```
+
+### Script to automatically install latest patchsets
+
+It determines if latest patches are available and installs them to the **default feed**.
+
+```
+kc.eportal --get-latest
+```
+
+If you need to update other feeds that are marked for auto update instead of
+the default one, use a different argument:
+
+```
+kc.eportal --auto-update
+```
+
+Note, that the latter command will update only feeds that has `Autoupdate`
+attribute.
+
+### Script to deploy release from a file
+
+If you have no opportunity to connect your ePortal server to the KernelCare patch server, you can install it manually:
+
+Download the selected patchset to your ePortal server:
+
+```
+rsync -v 04082020_1.tgz your-eportal:/tmp
+```
+
+Run the deployment tool with patchset file name as a parameter:
+
+```
+kc.eportal --deploy /tmp/04082020_1.tgz
+```
+
+
+### Clean obsolete releases
+
+The list of provided patches is reduced once in a month (old patches that have
+newer versions are removed), but resources are not deleted from ePortal machine.
+The control of resource deletion is in charge of the ePortal administrator. To
+free disk space on ePortal old release resources could be removed.
 
 To check what releases will be removed:
 
@@ -232,28 +384,37 @@ To remove obsolete releases:
 kc.eportal --clean-releases
 ```
 
+
 ## Managing Keys
 
-
-To register new servers you need to create a KernelCare key that will be used for server registration.
-To go to the list of keys, click the KernelCare ePortal logo at the top left.
+To register new servers you need to create a KernelCare key that will be used
+for server registration. To go to the list of keys, click the _Keys_ navigation
+item.
 
 ![](/images/key-menu_zoom70.png)
 
 * To edit a key, click ![](/images/eportal_keys_edit.png) . The _Edit_ tab opens.
-* To remove a key, click ![](/images/eportal_keys_remove.png) . Please note, that removing the key would remove all servers under that key.
-* Click a key to go to Servers tab with the list of [servers registered](/kernelcare-enterprise/#managing-servers) under that key. You can also remove servers on that tab.
+* To remove a key, click ![](/images/eportal_keys_remove.png) . Please note, that
+  removing the key would remove all servers under that key.
+* Click a key to go to Servers tab with the list of
+  [servers registered](/kernelcare-enterprise/#managing-servers) under that key.
+  You can also remove servers on that tab.
 
 To create a new registration click _Create_ tab.
+
    ![](/images/key-creation_zoom70.png) 
+
 Fill in the following fields:
 
-* **Key** —  you can provide a key name or leave the field empty, so an automatically generated name will be used
+* **Key** —  you can provide a key value or leave the field empty, so an
+  automatically generated key will be used
 * **Description** — you can provide a description for the key
 * **Server Limit** — the amount of servers that can be registered under that key
 * **Feed** — select a specific feed or leave empty.
 
-Click _Save_ to add the key. The new registration key will be created and added to the list. The key itself will be used as a part of the registration command on an individual server.
+Click _Save_ to add the key. The new registration key will be created and added
+to the list. The key itself will be used as a part of the registration command
+on an individual server.
 
 Click _Save and Add Another_ to save this key and add one more key.
 
@@ -261,48 +422,75 @@ Click _Save and Continue Editing_ to add the key and open the key edit tab.
 
 Click _Cancel_ to return to the key list tab without adding a new key.
 
+### CLI to manage keys
+
+```
+~$ kc.eportal key --help
+usage: kc.eportal key [-h] [-a] [-c] [--note NOTE]
+                      [--server-limit SERVER_LIMIT] [--feed FEED]
+                      [key]
+
+list available keys by default
+
+positional arguments:
+  key                   key name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a                    action: add new key
+  -c                    action: change key
+  --note NOTE           key description
+  --server-limit SERVER_LIMIT
+                        maximum number of servers allowed
+  --feed FEED           feed to associate key to
+```
+
+List keys:
+
+```
+kc.eportal key
+```
+
+Autogenerate key:
+
+```
+kc.eportal key -a
+```
+
+Create key witch specified value:
+
+```
+kc.eportal key -a test
+```
+
+Set feed to key:
+
+```
+kc.eportal key -c test --feed test
+```
+
 
 ## Managing Servers
 
-
-You can see servers belonging to the key by clicking on the key itself in [Managing Keys](/kernelcare-enterprise/#managing-keys) interface.
+You can see servers belonging to the key by clicking on the key itself in
+[Managing Keys](/kernelcare-enterprise/#managing-keys) interface.
 
 ![](/images/server_list_1_zoom70.png)
 
+The screen shows servers registered under the key, their IP, hostname,
+effective kernel as well as the time of registration and last check in.
 
-The screen shows servers registered under the key, their IP, hostname, effective kernel as well as the time of registration and last check in.
+To view the list of all servers IDs that are connected to the particular key,
+do the following:
 
-### Managing Script
-
-
-:::tip Note
-If scripts do not work on your ePortal, you might need to update ePortal first. To update ePortal, please run the following command:
-
-```
-> yum update kcare-eportal
-```
-:::
-To view the list of all servers IDs that are connected to the particular key, do the following:
-* In the UI go to the page with the list of keys. Then click the particular key. The list of servers connected to this key will be displayed.
+* In the UI go to the page with the list of keys. Then click the particular
+  key. The list of servers connected to this key will be displayed.
 
 To view the list of all servers IDs that are not connected to any key, use the <span class="notranslate">_Servers_</span> button on the navigation bar.
 
 ![](/images/eportal-servers.png)
 
-
-### Script to unroll patchsets
-
-
-To unroll patchset, run:
-
-```
-> kc.eportal --unroll 16012017_1
-```
-
-### Script to determine the number of servers under the management of ePortal, per key
-
-
-To see pairs of key/number of servers run:
+Also you can use CLI to see pairs of key/number of servers run:
 
 ```
 > kc.eportal --list-servers
@@ -313,68 +501,21 @@ To see pairs of key/number of servers run:
 |`0` | `2shcolu7Y1x6885Q`|
 |`2` | `6J89aS44j6OmTr05`|
 
-
-### Script to automatically install latest patchsets
-
-It determines if latest patches are available and installs them to the **default feed**.
-
-```
->kc.eportal --get-latest
-```
-
-If you need to update other feeds that are marked for auto update instead of the default one, use a different argument:
-
-```
->kc.eportal --auto-update
-```
-
-Note, that the latter command will update only feeds that meet the "_deploy after_" criteria.
-
-### Script to deploy patchset from a file
-
-If you have no opportunity to connect your ePortal server to the KernelCare patch server, you can install it manually:
-
-- download the selected patchset to your ePortal server:
-```
-rsync -v 04082020_1.tgz your-eportal:/tmp
-```
-
-- run the deployment tool with patchset file name as a parameter. It should be the full path to the file:
-```
->kc.eportal --deploy /tmp/04082020_1.tgz
-```
-
-### Unroll patches from UI
-
- 
-In the patch-source page, there is a list of available patches. To unroll patches click the button _Roll back this patch, and all after it_.
-Use it to roll back the patch and all the following patches.
-
 ### Show extended check-in statistics in admin UI
 
 A new table is added to the starting page. This table displays the following:
 * Total number of servers.
 * Number of servers that checked in for the past 48 hours.
 
-The number of servers for each key is listed in the _Key Inventory_ table.
-
-### Ability to create read-only users
-
-```
-[root@localhost ~]# kc.eportal -l
-Num | Username
---- + --------------------------------
- 1 | admin
- 2 | user
-[root@localhost ~]# kc.eportal -r user
-User 'user' is now readonly
-```
-
-### Feed Management
+The number of servers for each key is listed on the _Keys_ page.
 
 
+## Feed Management
 
-Feeds are intended to manage patchsets on the server, and they provide a possibility to bind a set of patches to a specific key. Possible use cases: for preliminary testing of patches, for applying updates to groups of servers with the similar hardware, etc.
+Feeds are intended to manage patchsets on the server, and they provide
+a possibility to bind a set of patches to a specific key. Possible use cases:
+for preliminary testing of patches, for applying updates to groups of
+servers with the similar hardware, etc.
 
 To get into Feeds Management interface go to Settings → Feeds:
 
@@ -387,33 +528,52 @@ On this page a user can manage the existing feeds: create, delete, edit.
 Available options:
 * Name — a name of a feed.
 * Auto update — enable and disable automatic downloading of patches to this feed.
-* Deploy after X hours — a delay in hours between the moment the patchset is available for deployment and the moment it is installed to the feed.
+* Deploy after X hours — a delay in hours between the moment the patchset is
+  available for deployment and the moment it is installed to the feed.
 
-Every 10 minutes ePortal checks for new patches on the main patch server. If a new patch is available, it is uploaded to the ePortal server. Note: it is uploaded but is not deployed. The patch availability time is considered starting from the moment a new patch appears on the ePortal, and that time is taken into account in `Deploy after X hours` option. So, if a user sets `Deploy after X hours = 10`, the patch will be deployed to the feed 10 hours after it has been downloaded to the ePortal server.
+Every 10 minutes ePortal checks for new patches on the main patch server. If
+a new patch is available, it is uploaded to the ePortal server. Note: it is
+uploaded but is not deployed. The patch availability time is considered
+starting from the moment a new patch appears on the ePortal, and that time is
+taken into account in `Deploy after X hours` option. So, if a user sets `Deploy
+after X hours = 10`, the patch will be deployed to the feed 10 hours after it
+has been downloaded to the ePortal server.
 
-To make the feed auto-update immediately (so that, new patches are loaded to the feed immediately after they are available on ePortal), set `Deploy after X hours = 0`.
+To make the feed auto-update immediately, so new patches are loaded to
+the feed immediately after they are available on ePortal, set `Deploy after
+X hours = 0`.
 
-A special case is a clean installation when ePortal is installed on a new server (there aren't any downloaded archives with patches and feeds with deployed patchsets, including default feed). In this case, if a user creates a new feed and sets Deployed after X hours option right away, then all patches (from the oldest to the latest available) will be deployed to the feed after the specified X hours. This is because the archives are downloaded from scratch and will be considered as “just appeared on ePortal” — that is, all patches will have the same appearance time on ePortal from which the option Deploy after X hours will repel.
+A special case is a clean installation when ePortal is installed on a new
+server (there aren't any downloaded archives with patches and feeds with
+deployed patchsets, including default feed). In this case, if a user
+creates a new feed and sets Deployed after X hours option right away,
+then all patches (from the oldest to the latest available) will be
+deployed to the feed after the specified X hours. This is because the
+archives are downloaded from scratch and will be considered as “just
+appeared on ePortal” — that is, all patches will have the same
+appearance time on ePortal from which the option Deploy after X hours
+will repel.
 
 ![](/images/feedmanagement3_zoom70.png)
 
-On the main ePortal page, a user can set the corresponding key <> feed pair. This is done in the key creation interface or when editing a key.
+On the main ePortal page, a user can set the corresponding key <> feed pair.
+This is done in the key creation interface or when editing a key.
 
 ![](/images/feedmanagement4_zoom70.png)
 
-By default, a new key is bound to the default feed, alternatively, a user can choose a desired feed from the drop-down menu.
+By default, a new key is bound to the default feed, alternatively, a user can
+choose a desired feed from the drop-down menu.
 
 ![](/images/feedmanagement5_01_zoom70.png)
 
 :::tip Note
-When removing a feed all keys attached to this feed will be moved to the default feed.
+When removing a feed all keys attached to this feed will be moved to the
+default feed.
 :::
 
 ![](/images/feedmanagement6_zoom70.png)
 
-### Adding extra Tag field
-
-
+## Adding extra Tag field
  
 To add an extra Tag field for the server, run:
 
@@ -421,7 +581,9 @@ To add an extra Tag field for the server, run:
 kcarectl --tag command
 ```
 
-where `command` is a parameter defined by a user. This parameter will be displayed in UI for the server. User could add multiple tags for each server. Each tag should be separated with `;` symbol.
+where `command` is a parameter defined by a user. This parameter will be
+displayed in UI for the server. User could add multiple tags for each server.
+Each tag should be separated with `;` symbol.
 
 Example:
 
@@ -444,8 +606,7 @@ kcarectl --tag ""
 Where `""` is a parameter to delete the previously defined tag.
 
 
-### How to setup ePortal to use HTTPS
-
+## How to setup ePortal to use HTTPS
 
 Some assumptions for a server where e-portal is deployed:
 
@@ -471,7 +632,9 @@ sed -e '3iinclude eportal.ssl.conf;' -i /etc/nginx/conf.d/eportal.conf
 service nginx restart
 ```
 
-In order to communicate with e-portal, updated to https, you need to modify KernelCare config files on all the servers if they have IPs hardcoded servers settings.
+In order to communicate with e-portal, updated to https, you need to modify
+KernelCare config files on all the servers if they have IPs hardcoded servers
+settings.
 
 To do that, update `PATCH_SERVER` and `REGISTRATION_URL` environment variables:
 
@@ -479,14 +642,17 @@ To do that, update `PATCH_SERVER` and `REGISTRATION_URL` environment variables:
 vi /etc/sysconfig/kcare/kcare.conf
 ```
 
-So, after editing your `/etc/sysconfig/kcare/kcare.conf` should contain updated `PATCH_SERVER` and `REGISTRATION_URL` environment variables like in the example below:
+So, after editing your `/etc/sysconfig/kcare/kcare.conf` should contain updated
+`PATCH_SERVER` and `REGISTRATION_URL` environment variables like in the example
+below:
 
 ```
 PATCH_SERVER=https://eportal_domain_name/
 REGISTRATION_URL=https://eportal_domain_name/admin/api/kcare
 ```
 
-The following example demonstrates how to connect new servers to e-portal configured for https:
+The following example demonstrates how to connect new servers to e-portal
+configured for https:
 
 ```
 $ export KCARE_PATCH_SERVER=https://eportal_domain_name/
@@ -496,10 +662,11 @@ $ curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 $ /usr/bin/kcarectl --register key_from_your_eportal
 ```
 
+
 ## Deploying KernelCare
 
-
-To deploy kernelcare client software to use ePortal, the following environment variables should be setup prior to RPM install:
+To deploy kernelcare client software to use ePortal, the following environment
+variables should be setup prior to RPM install:
 
 | |  | |
 |-|--|-|
@@ -518,10 +685,10 @@ $ curl -s https://repo.cloudlinux.com/kernelcare/kernelcare_install.sh | bash
 $ kcarectl --register r72fF838Q47oWigj
 ```
 
-## KernelCare client config file
+### KernelCare client config file
 
-
-KernelCare client configuration file is located in `/etc/sysconfig/kcare/kcare.conf`
+KernelCare client configuration file is located in
+`/etc/sysconfig/kcare/kcare.conf`
 
 Example:
 
@@ -531,16 +698,17 @@ PATCH_SERVER=http://10.1.10.115/
 REGISTRATION_URL=http://10.1.10.115/admin/api/kcare
 ```
 
-If `AUTO_UPDATE` set to `True`, KernelCare client will check in every 4 hours, and try to download and apply latest patches
+If `AUTO_UPDATE` set to `True`, KernelCare client will check in every 4 hours,
+and try to download and apply latest patches
 
 `PATCH_SERVER` - server from which patches will be downloaded
 
 `REGISTRATION_URL` - URL used to register/unregister server
 
+### Deployment Automation
 
-## Deployment Automation
-
-It is possible to use automation tools like Ansible/Puppet/Chef/Salt to install and operate KernelCare on a big number of systems.
+It is possible to use automation tools like Ansible/Puppet/Chef/Salt to install
+and operate KernelCare on a big number of systems.
 
 The deployment process includes:
 
@@ -548,12 +716,18 @@ The deployment process includes:
 * updating `/etc/sysconfig/kcare/kcare.conf` with ePortal-related entries
 * registering KernelCare agents using an activation key
 
-### Ansible
+#### Ansible
 
 To start the automated deployment, you need to specify the following information:
 
-* ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config file options can be found at [Config Options](/config-options/) and [KernelCare client config file](/kernelcare-enterprise/#kernelcare-client-config-file) (ePortal).
-* an activation key in the `activation_key` Ansible variable. Activation keys can be generated in ePortal as described in [Managing Keys](/kernelcare-enterprise/#managing-keys) (ePortal). 
+* ePortal server name (or IP) in the `eportal_srv` Ansible variable. Other config
+  file options can be found at [Config Options](/config-options/) and
+  [KernelCare client config file](/kernelcare-enterprise/#kernelcare-client-config-file)
+  (ePortal).
+
+* an activation key in the `activation_key` Ansible variable. Activation keys can
+  be generated in ePortal as described in
+  [Managing Keys](/kernelcare-enterprise/#managing-keys) (ePortal).
 
 Ansible playbook for deployment phase may look like:
 
@@ -603,10 +777,10 @@ Ansible playbook file example for KernelCare agent removal:
         state: absent
 ```
 
-## Changing ePortal IP
+### Changing ePortal IP
 
-
-You can change ePortal IP at any moment, but you need to modify KernelCare config files on all the servers if they have IPs hardcoded.
+You can change ePortal IP at any moment, but you need to modify KernelCare
+config files on all the servers if they have IPs hardcoded.
 
 To do that, edit: `/etc/sysconfig/kcare/kcare.conf`
 
@@ -622,7 +796,6 @@ To point to the right location.
 
 ## Configuration & locations
 
-
 Web Server (nginx) configuration is located at `/etc/nginx/conf.d/eportal.conf`
 
 Database (sqlite) is stored in `/usr/share/kcare-eportal/data.sqlite`
@@ -633,17 +806,10 @@ $ mv /usr/share/kcare-eportal/data.sqlite /usr/share/kcare-eportal/data.sqlite_b
 $ cd /usr/share/kcare-eportal && python createdb.py
 ```
 
-Client access data file used to decide if server has access to the patches is stored in `/usr/share/kcare-eportal/kcare_servers.htpasswd`
-
 Patches are stored in: `/usr/share/kcare-eportal/patches`
 
 
 ## Stopping & Starting
-
-
-
-### KernelCare.ePortal on EL7
-
 
 To stop/start/reload/restart configuration of nginx server:
 
@@ -669,11 +835,13 @@ Nginx error log: `/var/log/nginx/error.log`
 
 ### Log Rotation
 
-By default there is no predefined parameters for eportal's logs rotation. If you want to enable it for the files listed above:
- - Install `logrotate` package 
+By default there is no predefined parameters for eportal's logs rotation. If you
+want to enable it for the files listed above:
+
+ - Install `logrotate` package
  - Create/edit `/etc/logrotate.d/eportal` configuration file 
- 
- Example logrotate config:
+
+Example logrotate config:
 
 ```
 /var/log/nginx/kcare-eportal.log {
@@ -681,13 +849,12 @@ By default there is no predefined parameters for eportal's logs rotation. If you
     rotate 5 # keep 5 last archives
     missingok # it's ok if there is no such file
     notifempty # do nothing if file is empty
-    compress 
+    compress
 }
 ```
 
 
 ## Nagios & Zabbix support
-
 
 KernelCare.ePortal since version 1.2 supports server monitoring similar to [Nagios](/kc-agent-monitoring/#nagios-plugin) & [Zabbix](/kc-agent-monitoring/#zabbix-template) monitoring.
 
