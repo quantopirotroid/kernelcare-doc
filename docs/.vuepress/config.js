@@ -40,7 +40,8 @@ module.exports = {
   // tracking ids
   head: [
       ["script", { src: "https://js.hs-scripts.com/5408110.js" }], // HubSpot
-      ["link", { rel: "icon", href: "/favicon.ico" }],
+      ["script", { src: "/scripts/scroll-to-hash.js"}],
+      ["link", { rel: "icon", href: "/favicon.ico" }]
   ],
   fbPixelID: "645174729237247", // facebook pixel
 
