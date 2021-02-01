@@ -457,7 +457,7 @@ Autogenerate key:
 kc.eportal key -a
 ```
 
-Create key witch specified value:
+Create key with specified value:
 
 ```
 kc.eportal key -a test
@@ -572,6 +572,47 @@ default feed.
 :::
 
 ![](/images/feedmanagement6_zoom70.png)
+
+### CLI to manage feeds
+
+```
+~$ kc.eportal feed --help
+usage: kc.eportal feed [-h] [-a] [-c] [--auto] [--no-auto]
+                       [--deploy-after hours]
+                       [feed]
+
+list available feeds by default
+
+positional arguments:
+  feed                  feed name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a                    action: add new feed
+  -c                    action: change feed
+  --auto                update feed automatically
+  --no-auto             don't update feed automatically
+  --deploy-after hours  deploy after specified hours
+```
+
+List feeds:
+
+```
+kc.eportal feed
+```
+
+Add auto updated feed:
+
+```
+kc.eportal feed -a test --auto
+```
+
+Change feed into delayed feed:
+
+```
+kc.eportal feed -c test --deploy-after 12
+```
+
 
 ## Adding extra Tag field
  
@@ -792,6 +833,43 @@ REGISTRATION_URL=http://10.1.10.115/admin/api/kcare
 ```
 
 To point to the right location.
+
+
+## Migrate ePortal
+
+Here is a procedure to migrate feed/server/key configuration data from one ePortal
+to another. ePortal version on a new host should be >=1.18.
+
+* Stop ePortal on both hosts:
+
+  ```
+  [old-host ~]# systemctl stop eportal
+  ```
+
+  ```
+  [new-host ~]# systemctl stop eportal
+  ```
+
+* Remove db files on a new host:
+
+  ```
+  [new-host ~]# rm /usr/share/kcare-eportal/data.sqlite*
+  ```
+
+* Copy `/usr/share/kcare-eportal/data.sqlite` to a new host.
+
+* If you want to preserve same LDAP and Feed Source settings, additionally copy
+  `/usr/share/kcare-eportal/config/config.json`
+
+* Start eportal on both hosts:
+
+  ```
+  [old-host ~]# systemctl start eportal
+  ```
+
+  ```
+  [new-host ~]# systemctl start eportal
+  ```
 
 
 ## Configuration & locations
