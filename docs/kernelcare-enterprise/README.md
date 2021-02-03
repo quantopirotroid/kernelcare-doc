@@ -386,31 +386,31 @@ kc.eportal --clean-releases
 
 ## LibCare PatchSet Deployment
 
-Starting from version 1.18 ePortal supports LibCare patchset management. It
-is accessible from `LibCare Feeds / Feed` navigation item. LibCare patches
+Starting from version 1.18, ePortal supports the LibCare patchset management. It
+is accessible from the `LibCare Feeds / Feed` navigation item. LibCare patches
 use the same Patch Source credentials and you don't need to perform additional
 configuration.
 
 ![](/images/eportal-libcare-feed.png)
 
-UX for LibCare patch management is the same as for KernelCare patches and you
-can refer [PatchSet Deployment](#patchset-deployment) documentation.
+User interface for the LibCare patch management is the same as for KernelCare patches and you
+can refer the [PatchSet Deployment](#patchset-deployment) documentation.
 
-### CLI to install latest patchsets
+### CLI to install the latest patchsets
 
-To update default feed:
+To update the default feed, run the following command:
 
 ```
 kc.eportal libcare update
 ```
 
-To update `test` feed:
+To update the `test` feed, run the following command:
 
 ```
 kc.eportal libcare update --feed test
 ```
 
-To update all auto-feeds:
+To update all auto-feeds, run the following command:
 
 ```
 kc.eportal libcare auto-update
@@ -437,7 +437,7 @@ For example:
 kc.eportal libcare deploy --feed test /tmp/U20210129_02.tar.bz2
 ```
 
-Will deploy and enable `U20210129_02` patchset in to `test` feed.
+This command will deploy and enable the `U20210129_02` patchset in to the `test` feed.
 
 
 ## Managing Keys
