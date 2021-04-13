@@ -310,19 +310,41 @@ then click _Patch Source_. To get access, please contact
 [sales@kernelcare.com](mailto:sales@kernelcare.com) and request your ePortal
 access credentials.
 
-![](/images/eportal_dep01_1_zoom70.png)
+![](/images/eportal-edit-patch-source.png)
+
+You can choose only a limited set of distros to fetch to reduce disk
+space and network bandwidth requirements.
 
 Once you set up patch source access info, you will get to a list of available patchsets.
 
-![](/images/eportal_dep02_1_zoom70.png)
+![](/images/eportal-dashboard.png)
 
-Clicking on _[changelog]_ will provide changelog for given patchset.
+* **Usage**: amount of servers using particular patchset on any
+  feed. You can click on the number to see a list of servers using the patchset.
 
-Clicking on _[enable this patch, and all before it]_ will download and deploy
-this and earlier patchsets.
+* **Patchsets**: name of the patchset. Click on a name will show patchset
+  changelog.
 
-To unroll patches click the button _Roll back this patch, and all after it_.
-Use it to roll back the patch and all the following patches.
+* **Feed name**: cells show patchset deployment and server usage status on particular feed.
+  Numbers are also clickable to filter server list.
+
+* **Manage**: opens dialog to enable/disable the patchset.
+
+### Manage patchset page
+
+![](/images/eportal-manage.png)
+
+In this dialog you can control which patchsets will be enabled/disabled on
+corresponding feeds.
+
+* **Enable all up to this patchset**: action will enable all patchsets
+(excluding **disabled**) up to this patchset.
+
+* **Enable**: action will enable only current patchset.
+
+* **Disable**: action will disable only current patchset. Disabled patchsets
+are immune to auto-update and mass-enabling via **Enable all up to this patchset**
+action.
 
 To unroll patchset from CLI, run:
 
