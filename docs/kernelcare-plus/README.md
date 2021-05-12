@@ -43,3 +43,18 @@ Userspace patching cron job is disabled by default. To enable it, run the follow
 ```bash
 libcare-cron init
 ```
+
+## Thoubleshouting
+
+### Auditd logs
+
+The libcare tools heavily use a `ptrace` syscall and, in case of `auditd` trace it's calls, there will be a lot of records in a log. There is a rule that provided by kernelcare package and located here `/etc/audit/rules.d/kernelcare.rules`. It will exclue kernelcare processes from audit.
+
+Note: no such rule is provided for `el6` due to old `autditd` restrictions. There is a command that will add such rule in runtime
+
+```
+auditctl -l | grep kcare | cut -d' ' -f2- | xargs -t -L1 -r auditctl -d && pgrep libcare-server | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcarever | xargs -t -n1 -i auditctl -A exit,never -F arch=b64 -S ptrace -F pid="{}" -k kcare
+```
+
+It removes all currently enabled kernelcare rules and adds a new one by libcare's process ID.
+
