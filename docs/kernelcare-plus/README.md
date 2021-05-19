@@ -44,7 +44,7 @@ Userspace patching cron job is disabled by default. To enable it, run the follow
 libcare-cron init
 ```
 
-## Thoubleshouting
+## Troubleshooting
 
 ### Auditd logs
 
