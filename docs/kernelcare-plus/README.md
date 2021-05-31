@@ -30,11 +30,23 @@ To gather information about what processes were patched, run the following comma
 $ kcarectl --lib-info
 ```
 
+To gather information about applyed patches:
+
+```bash
+$ kcarectl --lib-patch-info
+```
+
 To unpatch all involved processes, run the following command:
 
 ```bash
 $ kcarectl --lib-unload
 ```
+
+# Blacklisting
+
+If you need to avoid patching of some particular process it could be done by blacklist defining. 
+Default one is located in `/var/lib/libcare/blacklist` and contains a package-provided list. 
+You can overwrite those values by creating `/var/cache/kcare/userspace/blacklist` file that has priority.
 
 ## Auto update
 
