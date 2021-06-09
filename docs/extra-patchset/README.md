@@ -5,7 +5,7 @@
 KernelCare 2.12-5 or higher
 :::
 
-KernelCare Extra patchset includes all the security fixes from KernelCare for CentOS 6 & CentOS 7 as well as symlink protection and IPSet bugfix for CentOS 6.
+KernelCare Extra patchset includes all the security fixes from KernelCare for CentOS 6, CentOS 7, and CentOS 8 as well as symlink protection and IPSet bugfix for CentOS 6.
 
 To enable extra patches and apply patch, run:
 
