@@ -46,7 +46,7 @@ $ kcarectl --lib-unload
 
 If you need to avoid patching of some particular process it could be done by blacklist defining. 
 Default one is located in `/var/lib/libcare/blacklist` and contains a package-provided list. 
-You can overwrite those values by creating `/var/cache/kcare/userspace/blacklist` file that has priority.
+You can overwrite those values by creating `/var/cache/kcare/userspace/blacklist` file with the higher priority.
 
 ## Auto update
 
