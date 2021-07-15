@@ -724,6 +724,75 @@ kcarectl --tag ""
 Where `""` is a parameter to delete the previously defined tag.
 
 
+## Eportal API
+
+### GET /admin/api/servers
+
+Filters servers on various criterea, iterate through list and get
+server counts.
+
+**Query string parameters:**
+
+* `hostname`: String, optional. Return servers with a hostname like value. Value can
+  contain `%` placeholder to match any string.
+* `ip`: String, optional. Return servers with IP like value. Value can
+  contain `%` placeholder to match any string.
+* `feed`: String, optional. Return servers attached to feed. Use `main`
+  for default feed.
+* `key`: String, optional. Return servers registered to key.
+* `registered_age`: Integer, optional. Return servers registered more than
+  `registered_age` days ago. If `registered_age` is negative then return
+  servers registered less or equal -`registered_age` days ago. For example:
+  `registered_age=-3` means to return servers registered 3 or less days ago.
+* `checkin_age`: Integer, optional. Return servers sent check-in more than
+  `checkin_age` days ago. For negative values see `registered_age`.
+* `updated_age`: Integer, optional. Return servers loaded patches more than
+  `updated_age` days ago. For negative values see `registered_age`.
+* `is_updated`: Boolean, optional. If `true` then return servers updated to latest
+  available patches. If `false` return servers without latest patches.
+* `limit`: Integer, optional. Limit result to a specified number of entries. By
+  default `limit` is 10.
+* `offset`: Integer, optional. Set result to a specified offset. `limit` and
+  `offset` can be used to iterate through result.
+* `only_count`: Boolean, optional. Return server count only.
+
+**Response:**
+
+```json
+{
+    "count": 42,
+    "limit": 10,
+    "offset": 0,
+    "result": [
+        {
+            "id": "99c97tz44uKX13b5",
+            "ip": "10.51.16.72",
+            "hostname": "localhost.localdomain",
+            "key": "some-key",
+            "feed": "main",
+            "registered": "2021-04-08 16:43:23.907671",
+            "checkin": "2021-07-12 17:35:56.065077",
+            "updated": "2021-06-01 16:37:03.000000",
+            "euname": "3.10.0-1160.25.1.el7",        // effective kernel version
+            "release": "3.10.0-957.5.1.el7.x86_64",  // installed kernel version
+            "kernel_id": "9647204d2708cad906a75944ee56ac68fc5b5704",
+            "patch_level": 49,
+            "patch_type": "default",
+            "tags": null,
+            "uptime": 6394092,
+            "version": "#1 SMP Fri Feb 1 14:54:57 UTC 2019",
+            "virt": "kvm",
+            "kcare_version": "2.44-2",
+            "distro": "CentOS Linux",
+            "distro_version": "7.6.1810",
+            "machine": "x86_64",
+            "processor": "x86_64"
+        },
+        ...
+    ]
+}
+```
+
 ## How to setup ePortal to use HTTPS
 
 Some assumptions for a server where e-portal is deployed:
