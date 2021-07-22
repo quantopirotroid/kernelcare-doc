@@ -1146,3 +1146,53 @@ echo 0 > /usr/share/kcare-eportal/environment/PYTHONHTTPSVERIFY`
 ```
 
 
+## Authentication using Single Sign On
+
+ePortal supports Single Sign On authentication by "OAuth 2.0" standard, "Authorization Code" flow.
+
+### Configuration
+
+To enable SSO you need to configure OAuth2 authentication service provider and ePortal.
+
+#### Okta Application setup example
+
+You set up your OpenID Connect application inside the Okta Admin Console:
+
+1. In the Admin Console, go to **Applications** > **Applications**.
+
+2. Click **Create App Integration**.
+
+3. On the Create a new app integration page, select **OIDC - OpenID Connect** for the **Sign-in method** and then select **Web Application** as the **Application type**.
+
+4. Fill in the **Application Settings**.
+
+| **Setting**           | **Value**
+|-----------------------|-------------------------------------------
+| Sign-in redirect URI  | http://eportal_ip/admin/sso/login/callback
+| Sign-out redirect URI | http://eportal_ip/admin
+
+5. Obtain *Client ID*, *Client secret*, the full URL to the `/authorize`, `/token`, `/userinfo` endpoints.
+
+#### ePortal setup
+
+On the ePortal machine, configure SSO settings.
+
+Edit `/usr/share/kcare-eportal/config/local.py` file.
+
+```
+OIDC_AUTH_URL="https://dev-61441893.okta.com/oauth2/v1/authorize"
+OIDC_TOKEN_URL="https://dev-61441893.okta.com/oauth2/v1/token"
+OIDC_USERINFO_URL="https://dev-61441893.okta.com/oauth2/v1/userinfo"
+
+OIDC_CLIENT_ID="0Aa134lzhUKj8jDMo5d7"
+OIDC_CLIENT_SECRET="AoBNuWRLRu2dxIR3Q0btO53N1entmGxBjQqwmjVL"
+```
+
+Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting)
+section, choose a corresponding OS).
+
+If all settings configured correctly the new **Sign In with SSO** button has to appear on login page `http://eportal_ip/admin/login`
+
+![](/images/sso_eportal.png)
+
+
