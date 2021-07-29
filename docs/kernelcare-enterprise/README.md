@@ -38,8 +38,8 @@ and the following number of connected servers:
 
 ## Installation
 
-KernelCare.ePortal is compatible with 64-bit versions of CentOS 7 and 8.
-To install KernelCare.ePortal, start with the minimal image of EL7 or EL8.
+KernelCare.ePortal is compatible with 64-bit versions of CentOS 7 and 8, AlmaLinux 8.
+To install KernelCare.ePortal, start with the minimal image of EL7 or EL8 or AlmaLinux 8.
 
 For installation and workability of ePortal the Nginx web server is required.
 We recommend to use stable version from the official Nginx repository:
