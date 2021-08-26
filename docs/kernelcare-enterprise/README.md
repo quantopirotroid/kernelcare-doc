@@ -409,8 +409,8 @@ kc.eportal --clean-releases
 ## LibCare PatchSet Deployment
 
 Starting from version 1.18, ePortal supports the LibCare patchset management. It
-is accessible from the `LibCare Feeds / Feed` navigation item. LibCare patches
-use the same Patch Source credentials and you don't need to perform additional
+is accessible from the `Patches / LibCare` navigation item. LibCare patches
+use the same Patch Source credentials, and you don't need to perform additional
 configuration.
 
 ![](/images/eportal-libcare-feed.png)
@@ -461,6 +461,60 @@ kc.eportal libcare deploy --feed test /tmp/U20210129_02.tar.bz2
 
 This command will deploy and enable the `U20210129_02` patchset in to the `test` feed.
 
+## QEMU PatchSet Deployment
+
+Starting from version 1.25, ePortal supports the QEMU patchset management. It
+is accessible from the `Patches / QEMUcare` navigation item. QEMU patches
+use the same Patch Source credentials, and you don't need to perform additional
+configuration.
+
+![](/images/eportal-qemu-feed.png)
+
+User interface for the QEMU patch management is the same as for KernelCare patches, and you
+can refer the [PatchSet Deployment](#patchset-deployment) documentation.
+
+### CLI to install the latest patchsets
+
+To update the default feed, run the following command:
+
+```
+kc.eportal qemu update
+```
+
+To update the `test` feed, run the following command:
+
+```
+kc.eportal qemu update --feed test
+```
+
+To update all auto-feeds, run the following command:
+
+```
+kc.eportal qemu auto-update
+```
+
+### CLI to deploy patchset from archive
+
+```
+~$ kc.eportal qemu deploy --help
+usage: kc.eportal qemu deploy [-h] [--feed FEED] [--disabled] archive
+
+positional arguments:
+  archive      path to archive
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --feed FEED  feed to deploy archive to
+  --disabled   do not enable patchset after deploy
+```
+
+For example:
+
+```
+kc.eportal qemu deploy --feed test /tmp/U20210818_01-qemu.tar.bz2
+```
+
+This command will deploy and enable the `U20210818_01-qemu` patchset in to the `test` feed.
 
 ## Managing Keys
 
@@ -479,7 +533,7 @@ item.
 
 To create a new registration click _Create_ tab.
 
-   ![](/images/key-creation_zoom70.png) 
+   ![](/images/key-creation_zoom70.png)
 
 Fill in the following fields:
 
@@ -1063,7 +1117,7 @@ By default there is no predefined parameters for eportal's logs rotation. If you
 want to enable it for the files listed above:
 
  - Install `logrotate` package
- - Create/edit `/etc/logrotate.d/eportal` configuration file 
+ - Create/edit `/etc/logrotate.d/eportal` configuration file
 
 Example logrotate config:
 
@@ -1106,7 +1160,7 @@ First of all you need to install `ssmtp`:
 
     yum install -y ssmtp
 
-Edit `/etc/ssmtp/ssmtp.conf` file in accordance with your SMTP server configuration. Here is a simple config file describing a common way to connect to Gmail accounts: 
+Edit `/etc/ssmtp/ssmtp.conf` file in accordance with your SMTP server configuration. Here is a simple config file describing a common way to connect to Gmail accounts:
 
     root=username@gmail.com
     mailhub=smtp.gmail.com:587
