@@ -38,7 +38,7 @@
 |`--tag COMMAND` | Adds an extra _Tag_ field for a server. COMMAND is a user-defined parameter. More info at [Managing Servers](/kernelcare-enterprise/#managing-servers).|
 
 :::tip Note
-Currenlty available userspace patch types are `libs`, `db` and `qemu`. To apply patches only for shared libraries, use `--userspace-update libs`.
+Currenlty available userspace patch types are `libs` and `qemu`. To apply patches only for shared libraries, use `--userspace-update libs`.
 :::
 
 ## kcare-uname
