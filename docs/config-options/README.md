@@ -20,5 +20,5 @@ kcarectl behavior can be configured using `/etc/sysconfig/kcare/kcare.conf`
 |`STICKY_PATCH=DDMMYY` | Stick patch to a particular date. More info at [Sticky Patches](/sticky-patches/) .|
 |`REPORT_FQDN=True|False` | Force using Fully Qualified Domain as a hostname. False by default.|
 |`FORCE_GID=N`|Use this group ID for symlink protection patch. By default, it's 48 (default Apache user GID) or 99 (`nobody` user)|
-|`USERSPACE_PATCHES=libs,qemu`| Define which userspace patches will be applyed by default|
+|`USERSPACE_PATCHES=libs,qemu,db`| Define which userspace patches will be applyed by default|
 
