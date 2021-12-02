@@ -372,18 +372,29 @@ attribute.
 
 ### Script to deploy release from a file
 
-If you have no opportunity to connect your ePortal server to the KernelCare patch server, you can install it manually:
+If you have no opportunity to connect your ePortal server to the KernelCare patch server to
+be able to download patchsets directly from it, you can do it manually.
 
-Download the selected patchset to your ePortal server:
+If you have some location with already downloaded patchsets, and want to find out which is 
+the latest patchset file which needs to be moved, you can compare lists of archives
 
+```bash
+$ diff \
+    <(ls downloads/K*.tar.bz2 | sort -h) \
+    <(ls /usr/share/kcare-eportal/arch/K*.tar.bz2 | sort -h)
 ```
-rsync -v 04082020_1.tgz your-eportal:/tmp
+
+Upload the selected patchset to your ePortal server:
+
+```bash
+$ rsync -v K04082020_1.tgz your-eportal:/tmp
 ```
 
 Run the deployment tool with patchset file name as a parameter:
 
 ```
-kc.eportal --deploy /tmp/04082020_1.tgz
+$ kc.eportal --deploy /tmp/K04082020_1.tgz
+2021-12-02 01:25:06,555 - eportal.patches - INFO - K04082020_1 was enabled in main
 ```
 
 
