@@ -6,7 +6,7 @@
 
 ### Introduction
 
-The Linux kernel is the most important piece of the software on your server, as a security flaw in it can expose all of your services and customers' data. KernelCare is a technology that allows you to keep the Linux kernel safe at all times, automatically, without ever having to stop the server and rebooting it causing downtime and inconvenient scheduling of maintenance windows. This improves availability, security, stability, operation costs, and customer satisfaction. It works with almost all mainstream distributions of Linux. It is simple, fast, and very easy to deploy while being able to handle very complex patches and customized kernels if you need them.
+The Linux kernel is the most important piece of software on your server, as a security flaw in it can expose all of your services and customers' data. KernelCare is a technology that allows you to keep the Linux kernel safe at all times, automatically, without ever having to stop the server and rebooting it causing downtime and inconvenient scheduling of maintenance windows. This improves availability, security, stability, operation costs, and customer satisfaction. It works with almost all mainstream distributions of Linux. It is simple, fast, and very easy to deploy while being able to handle very complex patches and customized kernels if you need them.
 
 ### Prerequisites and Requirements
 
