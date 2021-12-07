@@ -402,10 +402,14 @@ $ rsync -Phav /tmp/K*.tar.bz2 eportal-prod:/tmp/
 Run the deployment tool with patchset file name as a parameter:
 
 ```bash
-$ ssh eportal-prod 'ls /tmp/K*.tar.bz2 | sort -h | xargs -n1 kc.eportal --deploy'
+$ ssh eportal-prod 'ls /tmp/K*.tar.bz2 | sort -h | xargs -n1 kc.eportal kcare deploy'
 2021-12-02 01:25:06,555 - eportal.patches - INFO - K04082020_1 was enabled in main
 ...
 ```
+
+Please note, that procedure above should be done for all other types of patchsets 
+(like libcare and qemu) *separately*. Use corresponding file prefixes and commands 
+like `kc.eportal libcare deploy`
 
 
 ### Clean obsolete releases
