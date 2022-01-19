@@ -1,5 +1,7 @@
 # UEFI Secure Boot Support
 
+**Note**: the feature is in an early stage of adoption and not all distributives could be supported:
+
 This new functionality lets kernelcare work on systems with secure boot set up in their UEFI firmware. We are going to add a public certificate to the MOK (Machine Owner Keys) database that kernelcare will use to sign modules.
 
 The latest kernelcare package contains a public certificate and will be available in `/usr/libexec/kcare/kernelcare_pub.der`. For older versions, it could be downloaded from https://patches.kernelcare.com/kernelcare_pub.der to that location. For example:
