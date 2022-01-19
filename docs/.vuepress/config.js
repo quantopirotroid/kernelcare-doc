@@ -149,7 +149,8 @@ module.exports = {
               "/uchecker/",
               "/kernelcare-whmcs-plugin/",
               "/proxy-settings/",
-              "/eol-ubuntu-lts-kernels-support/"
+              "/eol-ubuntu-lts-kernels-support/",
+              "/uefi-secure-boot/"
             ]
           }
         ]
