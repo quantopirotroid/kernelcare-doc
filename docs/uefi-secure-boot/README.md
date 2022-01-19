@@ -30,23 +30,23 @@ It doesn't have a MOK password, and `mokutil` will ask you to create one. The pa
 
   First, go down to the 'Enroll Mok': 
 
-![alt text](uefi-enroll-mok.png "Select Enroll MOK")
+![](/images/uefi-enroll-mok.png)
 
 Then the firmware gives you the option of viewing the new MOK or continuing. Let's continue. 
 
-![alt text](uefi-continue.png "Select Continue")
+![](/images/uefi-continue.png)
 
 It then asks you to confirm the enrollment. 
 
-![alt text](uefi-yes.png "Select Yes")
+![](/images/uefi-yes.png)
 
 Then enter the password you used when running the `mokutil --import`. 
 
-![alt text](uefi-password.png "Enter the password")
+![](/images/uefi-password.png)
 
 Finally, the firmware will ask you to reboot. 
 
-![alt text](uefi-ok.png  "Select OK")
+![](/images/uefi-ok.png)
 
 3. Verify the key has been loaded by finding it in the output of the following command:
 
