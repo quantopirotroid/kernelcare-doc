@@ -8,7 +8,7 @@ Glibc and OpenSSL patching is now available for the following operating systems:
 * Oracle Linux 7
 * Oracle Linux 8
 * Debian 9/10
-* Ubuntu 16.04/18.04
+* Ubuntu 16.04/18.04/20.04
 * Proxmox VE 6.
 * Scientific Linux
 
