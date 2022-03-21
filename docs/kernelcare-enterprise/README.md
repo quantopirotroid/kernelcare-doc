@@ -12,9 +12,8 @@ on-premises and in the cloud.
 
 **Disk**
 
-* 100 GB minimum
-* 200 GB recommended
-* SSD
+* 100 GB minimum, 200 GB recommended (20GB in case of cache mode)
+* SSD with at least 100 IOPS
 
 :::tip Note
 SSD based storage is a crucial requirement for ePortal server.
@@ -77,7 +76,27 @@ Install KernelCare.eportal:
 yum install -y kcare-eportal
 ```
 
-## How to adjust proxy on ePortal machine
+## Cache mode
+
+Cache mode allows to greatly reduce disk usage requirements and speed up
+initial downloading step.
+
+In cache mode ePortal downloads only lightweight meta information about
+patchsets and proxies patch requests from KernelCare agent to the patch server
+(Patch Source). Downloaded patch binaries are cached for 2 weeks and
+accessible for following requests directly from ePortal and doesn't consume
+public internet bandwidth.
+
+To enable cache mode add
+
+```
+CACHE_MODE = True
+```
+
+setting into ePortal configuration `/usr/share/kcare-eportal/config/local.py`.
+
+
+## Proxy configuration
 
 On the ePortal machine, you should define the same proxy settings as you use
 in the command line.
@@ -92,8 +111,25 @@ echo -e "\nPROXY = 'http://example.com:3128'" >> /usr/share/kcare-eportal/config
 ```
 </div>
 
+ePortal supports SOCKS5 proxy via `socks5://` proxy scheme:
+
+```
+PROXY = 'socks5://example.com:1080'
+```
+
+
 Restart ePortal (see [Stopping & Starting](/kernelcare-enterprise/#stopping-starting)
 section, choose a corresponding OS).
+
+## Auth configuration
+
+| | |
+|-|-|
+| `AUTH_PASSWORD_MIN_LENGTH` | Minimal password length, default 5 |
+| `AUTH_SESSION_LIFETIME`    | Session lifetime in seconds, by default session will last till browser closing |
+| `AUTH_REFRESH_SESSION`     | If `False` (default), expires session after lifetime seconds after login. If `True`, expires session after lifetime seconds of inactivity. |
+
+You can set configuration in `/usr/share/kcare-eportal/config/local.py` file.
 
 
 ## Managing Users
@@ -375,11 +411,11 @@ attribute.
 If you have no opportunity to connect your ePortal server to the KernelCare patch server to
 be able to download patchsets directly from it, you can do it manually.
 
-If you have some location with already downloaded patchsets, and want to find out which is 
-the latest patchset file which needs to be moved, you can compare lists of archives that you have 
+If you have some location with already downloaded patchsets, and want to find out which is
+the latest patchset file which needs to be moved, you can compare lists of archives that you have
 with content of `/usr/share/kcare-eportal/arch/` folder.
 
-After that you shoud upload the selected patchsets to your ePortal server and run `kc.eportal --deploy` 
+After that you shoud upload the selected patchsets to your ePortal server and run `kc.eportal --deploy`
 for each of them.
 
 #### Example
@@ -407,8 +443,8 @@ $ ssh eportal-prod 'ls /tmp/K*.tar.bz2 | sort -h | xargs -n1 kc.eportal kcare de
 ...
 ```
 
-Please note, that procedure above should be done for all other types of patchsets 
-(like libcare and qemu) *separately*. Use corresponding file prefixes and commands 
+Please note, that procedure above should be done for all other types of patchsets
+(like libcare and qemu) *separately*. Use corresponding file prefixes and commands
 like `kc.eportal libcare deploy`
 
 
@@ -1318,6 +1354,39 @@ Now you can test a connection:
 
     echo -n 'Subject: test\n\nTesting ssmtp' | sendmail -v some-recipient@gmail.com
 
+## Working with sqlite databases backup
+### Creating
+
+kc.eportal utility have an option to create database backup
+
+`kc.eportal backup-db <path_to_directory>` - creates backup in provided directory. If directory is not exists it will be created.
+
+#### Example of usage
+```
+mkdir -p /var/eportal/sqlite_backup_$(date '+%Y-%m-%d')
+kc.eportal backup-db /var/eportal/sqlite_backup_$(date '+%Y-%m-%d')
+```
+
+## Recovery
+Files created in the backup directory it is valid sqlite databases.
+You can replace existed databases (by default, in eportal home directory) with the backup files.
+
+IMPORTANT: eportal should be stopped before replace sqlite database files. Backup files should have owner and group `nginx:nginx`
+#### Example of usage
+```
+systemctl stop eportal
+cp -f /path/to/backup_dir/* /usr/share/kcare-eportal/
+chown nginx:nginx /usr/share/kcare-eportal/
+systemctl start eportal
+```
+
+Also, you need to check remote patchsource settings (Login, Password, Download URL in eportal UI), and after it download patches
+```
+kc.eportal kcare download-missing
+kc.eportal libcare download-missing
+kc.eportal qemu download-missing
+kc.eportal db download-missing
+```
 ## Custom environment variables
 
 You can define your own environment variables for ePortal process.
